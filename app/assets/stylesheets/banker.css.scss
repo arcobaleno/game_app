@@ -1,0 +1,39 @@
+/* Banker Page */
+
+$grey: #eaeaea;
+
+.banker_box1 {
+	width:140px;
+	height:140px;
+	background-color:$grey;
+}
+
+.banker_box2 {
+	width:140px;
+	height:140px;
+	background-color:$grey;
+	margin-top:10px;
+}
+
+.banker_box3 {
+	width:140px;
+	height:140px;
+	background-color:$grey;
+}
+
+.banker_box4 {
+	width:140px;
+	height:140px;
+	background-color:$grey;
+	margin-top:10px;
+}
+
+.banker_box5 {
+	width:280px;
+	height:290px;
+	background-color:$grey;
+}
+
+h1.total_credits {
+	font-size:120px;
+}

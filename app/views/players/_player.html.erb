@@ -1,0 +1,23 @@
+<div class="player_box">
+	<div class="player_name">
+		<%= full_name(player.user) %>
+	</div>
+</br>
+	<table class="table">
+		<tr>
+			<th><%= @game.team_one %>:</th>
+			<th><%= @game.team_two %>:</th>
+			<th>Bet:</th>
+		</tr>
+		<tr>
+			<td><%= player.team_one_predicted_score %></td>
+			<td><%= player.team_two_predicted_score %></td>
+			<td><%= player.bet %></td>
+		</tr>
+	</table>
+	<% if current_user.user_type == 4 %>
+	<div>
+		<h3><%= link_to player.id, payout_credit_path(player), :method => 'put' %></h3>
+	</div>
+	<% end %>
+</div>

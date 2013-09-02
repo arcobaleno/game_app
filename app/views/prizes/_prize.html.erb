@@ -1,0 +1,18 @@
+<div class="prize_box">
+	<h3>Prize <%= prize.id %></h3>
+	<table class="table">
+		<tr>
+			<th>Photo:</th>
+			<th>Description:</th>
+			<th>Redeem:</th>
+		</tr>
+		<tr>
+			<td>PHOTO</td>
+			<td><%= prize.description%></td>
+			<td><%= link_to "Redeem", redeem_prize_prize_path(prize), :method => 'put' %></td>
+		</tr>
+	</table>
+
+
+	
+</div>

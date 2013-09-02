@@ -1,0 +1,34 @@
+<h1>Save your Address</h1>
+
+<div class="row">
+	<div class="span6">
+
+		<%= form_for (@address) do |f| %>
+
+			<%= f.label :street_number %>
+			<%= f.text_field :street_number%>
+
+			<%= f.label :street %>
+			<%= f.text_field :street%>
+
+			<%= f.label :city %>
+			<%= f.text_field :city%>
+
+			<%= f.label :state %>
+			<%= f.text_field :state %>
+
+			<%= f.label :zipcode %>
+			<%= f.text_field :zipcode %>
+
+			<%= f.label :country %>
+			<%= f.text_field :country %>
+
+			<%= f.label :phone %>
+			<%= f.text_field :phone %>
+
+			<%= f.submit "Save Address", class: "btn btn-large btn-primary" %>
+
+		<% end %>
+
+	</div>
+</div>

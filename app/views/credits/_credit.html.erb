@@ -1,0 +1,12 @@
+<table class="table table-bordered">
+	<tr>
+		<td>Credit Id:</td>
+		<td>Owner:</td>
+		<td>Code:</td>
+	</tr>
+	<tr>
+		<td><%= link_to credit.id, credit %></td>
+		<td><%= full_name(credit.user) %></td>
+		<td><%= credit.credit_code %></td>
+	</tr>
+</table>

@@ -1,0 +1,42 @@
+<h1>New Pool</h1>
+
+<div class="row">
+		<div class="span4 offset4">
+			<%= form_for([@game, @pool]) do |f| %>
+
+				<%= f.label :pool_type, "Type of Pool" %>
+				<%= f.select(:pool_type, options_for_select([
+										['Closest Score', 'cs'],
+										['Choose Team', 'ct']
+										])) %>
+
+				<%= f.label :buy_in, "Buy In" %>
+				<%= f.select(:buy_in, options_for_select([
+										['1', 1],
+										['2', 2],
+										['3', 3],
+										['4', 4],
+										['5', 5]
+										])) %>
+
+				<%= f.label :max_players, "Max Players" %>
+				<%= f.select(:max_players, options_for_select([
+										['5', 5],
+										['10', 10],
+										['15', 15],
+										['20', 20]
+										])) %>				
+
+				<%= f.label :status, "Status" %>
+				<%= f.select(:status, options_for_select([
+										['Open', 'open'],
+										['Closed', 'closed']
+										])) %>
+		</div>
+</div>
+		<div class="center">
+				<%= f.submit "Post A New Pool", class: "btn btn-large btn-primary" %>
+				<% end %>
+		</div>
+		</div>
+</div>

@@ -1,0 +1,29 @@
+<% provide(:title, 'All users') %>
+
+<h1>All Users</h1>
+<%= form_tag users_path, :method => 'get' do %>
+	<%= hidden_field_tag :direction, params[:direction] %>
+	<%= hidden_field_tag :sort, params[:sort] %>
+	<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search", :id => nil %>
+	</p>
+<% end %>
+
+<table class="table">
+	<tr>
+		<th><%= sortable "id" %></th>
+		<th><%= sortable "email" %></th>
+		<th><%= sortable "first_name" %></th>
+		<th><%= sortable "last_name" %></th>
+	</tr>
+	<% for user in @users %>
+	<tr>
+		<td><%= user.id %></td>
+		<td><%= user.email %></td>
+		<td><%= user.first_name %></td>
+		<td><%= user.last_name %></td>
+	</tr>
+	<% end %>
+</table>
+<%= will_paginate @users %>

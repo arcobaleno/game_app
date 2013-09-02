@@ -1,0 +1,50 @@
+<% provide(:title,'Home') %>
+
+<div id="home_page">
+	<div class="row">
+			<div class="span4" id="softgrey">
+				<div class="row">
+					<div class="span1">
+						<%= image_tag("stadium.png") %>
+					</div>
+
+					<div class="span3">
+						<h4 id="pys_text">Post Your Score</h4>
+					</div>
+				</div>
+
+			</br>
+
+				<div class="row">
+					<div class="span5/2">
+						<h4 id="tyf_text">BANTR with Friends</h4>
+					</div>
+					<div class="span1">
+						<%= image_tag("trash.png") %>
+					</div>
+				</div>
+
+			</br>
+
+				<div class="row">
+					<div class="span1">
+						<%= image_tag("trophy.png") %>
+					</div>
+					<div class="span3">
+						<h4 id="cyp_text">Claim Your Prize</h4>
+					</div>
+				</div>
+			</div>
+
+			<div id="vertical_line" class="span1">
+				<p id="line_height"></p>
+			</div>
+
+			<div class="span5">
+					<h1 id="wtpg_text"> Join the Ji </h1>
+					<h3 id="softgrey">This is the lean-test version of the Ji Application</h3>
+					<h3><%= link_to "Sign Up Here", signup_path, class: "btn btn-large btn-inverse" %></h3>
+			</div>
+	</div>
+</div>
+

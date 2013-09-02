@@ -1,0 +1,35 @@
+<h1>Pool <%= @pool.id %></h1>
+
+<div class="row">
+
+<div class="span6">
+<h3>Sport: <%= @game.sport %></h3>
+
+<h3>Game: <%= @game.team_one %> vs. <%= @game.team_two %></h3>
+
+<h3>Date: <%= @game.time %></h3>
+
+<h3>Pool Type: <%= @pool.pool_type %></h3>
+
+<h3>Buy In: <%= @pool.buy_in %>
+
+<h3>Max Players: <%= @pool.max_players %></h3>
+
+<h3>Status: <%= @pool.status %></h3>
+
+<h3>Credits in Pool: <%= @pool_credits %></h3>
+</div>
+
+<div class="span6">
+	<%= render 'shared/new_player' %>
+</div>
+
+</div>
+
+<h3 class="players_in_pool">Players in Pool</h3>
+
+<div class="row">
+
+	<%= render @players %>
+
+</div>

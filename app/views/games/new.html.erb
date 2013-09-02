@@ -1,0 +1,36 @@
+<h1>Create a New Game</h1>
+
+<div class="row">
+		<div class="span4 offset4">
+			<%= form_for(@game) do |f| %>
+
+				<%= f.label :team_one %>
+				<%= f.text_field :team_one %>
+
+				<%= f.label :team_two %>
+				<%= f.text_field :team_two %>
+
+				<%= f.label :sport, "Type of Sport" %>
+				<%= f.select(:sport, options_for_select([
+										['Baseball', 'Baseball'],
+										['Basketball', 'Basketball'],
+										['Football', 'Football'],
+										['Soccer', 'Soccer'],
+										['Tennis', 'Tennis']
+										])) %>
+				<%= f.label :date, "Date of Event" %>
+				<%= f.date_select :date, :order => [:month, :day, :year] %>
+
+				<div class="time">
+						<%= f.label :time, "Time of Event" %>
+					
+						<%= f.time_select :time, :prompt => {:hour => 'Choose hour', :minute => 'Choose minute', :second => 'Choose seconds'} %>
+				</div>
+		</div>
+</div>
+		<div class="center">
+				<%= f.submit "Post New Game", class: "btn btn-large btn-primary" %>
+				<% end %>
+		</div>
+		</div>
+</div>

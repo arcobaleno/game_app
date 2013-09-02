@@ -1,0 +1,28 @@
+<h1>List of all Credits in System</h1>
+
+<%= link_to "Create New Credit", new_credit_path %>
+
+<%= form_tag credits_path, :method => 'get' do %>
+	<%= hidden_field_tag :direction, params[:direction] %>
+	<%= hidden_field_tag :sort, params[:sort] %>
+	<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search", :id => nil %>
+	</p>
+<% end %>
+
+<table class="table">
+	<tr>
+		<th><%= sortable "id" %></th>
+		<th><%= sortable "user_id" %></th>
+		<th><%= sortable "credit_code" %></th>
+	</tr>
+	<% for credit in @credits %>
+	<tr>
+		<td><%= credit.id %></td>
+		<td><%= credit.user_id %></td>
+		<td><%= credit.credit_code %></td>
+	</tr>
+	<% end %>
+</table>
+<%= will_paginate @credits %>
