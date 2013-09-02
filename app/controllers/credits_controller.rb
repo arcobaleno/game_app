@@ -58,10 +58,15 @@ class CreditsController < ApplicationController
 	    @banker = @bankers.first
 	    @banker_credits = Credit.find_all_by_user_id(@banker)
 	    @credit = @banker_credits.first
-	    @credit.user_id = @user.id
-	    @credit.save
-	    flash[:success] = "transfer should work"
-	    redirect_to show_banker_users_path
+	    if check_credits?
+		    @credit.user_id = @user.id
+		    @credit.save
+		    flash[:success] = "transfer should work"
+		    redirect_to show_banker_users_path
+		else
+			flash[:notice] = "banker has no credits to transfer"
+			redirect_to show_banker_users_path
+		end
  	end
 
 	def payout
