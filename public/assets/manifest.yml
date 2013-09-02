@@ -1,0 +1,21 @@
+---
+fallback/default.png: fallback/default-6f828ecc15b1bd7f70a487f0abda44b8.png
+fallback/default/index.png: fallback/default-6f828ecc15b1bd7f70a487f0abda44b8.png
+favicon.png: favicon-72270981fc97ea18dbd8688857c38ba9.png
+favicon/index.png: favicon-72270981fc97ea18dbd8688857c38ba9.png
+rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
+rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
+stadium.png: stadium-5800c2ce24e75ec75963d503979b7cd7.png
+stadium/index.png: stadium-5800c2ce24e75ec75963d503979b7cd7.png
+trash.png: trash-3fa20d4b8c0f48e4b913d2668a37ff19.png
+trash/index.png: trash-3fa20d4b8c0f48e4b913d2668a37ff19.png
+trophy.png: trophy-31ed792f45722abf08669efc985ea609.png
+trophy/index.png: trophy-31ed792f45722abf08669efc985ea609.png
+application.js: application-244f1bbc452923b1cbb540e0a81d4358.js
+application/index.js: application-244f1bbc452923b1cbb540e0a81d4358.js
+application.css: application-0307a0113f869b3d1590255b116c60ca.css
+application/index.css: application-0307a0113f869b3d1590255b116c60ca.css
+glyphicons-halflings-white.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
+glyphicons-halflings-white/index.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
+glyphicons-halflings.png: glyphicons-halflings-d63e747535b6b5c589a12cad5d16a401.png
+glyphicons-halflings/index.png: glyphicons-halflings-d63e747535b6b5c589a12cad5d16a401.png
