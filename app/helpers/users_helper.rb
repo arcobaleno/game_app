@@ -12,4 +12,9 @@ module UsersHelper
 	def banker?
 		current_user.user_type == 3
 	end
+
+	def check_credits?
+		@credits = Credit.find_all_by_user_id(current_user)
+		@credits.count > 0
+	end
 end

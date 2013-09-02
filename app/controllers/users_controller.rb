@@ -91,11 +91,16 @@ class UsersController < ApplicationController
 
   #Vendor Account Actions:
   def show_vendor
-    @user = User.find(current_user)
-    @vendor_credits = Credit.find_all_by_user_id(current_user)
-    @vendor_credit_count = @vendor_credits.count
-    @vendor_credit_first = @vendor_credits.first
-    @credit_code = @vendor_credit_first.credit_code
+     @user = User.find(current_user)
+    if check_credits?
+      @vendor_credits = Credit.find_all_by_user_id(current_user)
+      @vendor_credit_count = @vendor_credits.count
+      @vendor_credit_first = @vendor_credits.first
+      @credit_code = @vendor_credit_first.credit_code
+    else
+      flash[:notice] = "Vendor has no credits to offer"
+      redirect_to @user
+    end
   end
 
   private
