@@ -15,13 +15,17 @@
 	<tr>
 		<th><%= sortable "id" %></th>
 		<th><%= sortable "user_id" %></th>
+		<th><%= sortable "pool_id" %></th>
 		<th><%= sortable "credit_code" %></th>
+		<th>Edit Credit</th>
 	</tr>
 	<% for credit in @credits %>
 	<tr>
 		<td><%= credit.id %></td>
 		<td><%= credit.user_id %></td>
+		<td><%= credit.pool_id %></td>
 		<td><%= credit.credit_code %></td>
+		<td><%= link_to "Edit", edit_credit_path(credit), class: "btn btn-mini btn-primary" %></td>
 	</tr>
 	<% end %>
 </table>

@@ -29,14 +29,14 @@ class CreditsController < ApplicationController
 	end
 
 	def update
-		@credit = Credit.find_by_credit_code(@credit_code)
-		@credit.user_id = current_user.user_id
+		@credit = Credit.find(params[:id])
 		if @credit.update_attributes(params[:credit])
-	        flash[:success] = "Credit Info Updated!"
-	        redirect_to root_path
-	    else
-	        render 'edit'
-	    end
+			flash[:success] = "Credit info Updated!"
+			render 'edit'
+		else
+			flash[:notice] = "Credit info not Updated!"
+			render 'edit'
+		end
 	end
 
 	def show
