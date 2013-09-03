@@ -43,6 +43,9 @@ class UsersController < ApplicationController
     @players = current_user.players
     @pool_credits = @players.sum(:bet)
     @credit_code = Credit.find_by_credit_code(:credit_code)
+    if banker?
+      redirect_to show_banker_users_path
+    end
 
     # JSON
     # render json: {user: @user, player_credits: @player_credits, pool_credits: @pool_credits, credit_code: @credit_code}
