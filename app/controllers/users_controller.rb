@@ -74,7 +74,14 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    @user = User.find(params[:id])
+    @banker = User.find_all_by_user_type(3).first
+    @user_credits = Credit.find_all_by_user_id(@user)
+    @user_credits.each do |credit|
+      credit.user_id = @banker.id
+      credit.save
+    end
+    @user.destroy
     flash[:success] = "User Deleted!"
     redirect_to users_path
   end
@@ -114,7 +121,7 @@ class UsersController < ApplicationController
   end
 
   def admin_user
-    redirect_to root_path unless current_user.admin?
+    redirect_to root_path unless current_user.user_type == 4
   end
 
   def banker_user
