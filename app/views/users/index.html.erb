@@ -16,6 +16,9 @@
 		<th><%= sortable "email" %></th>
 		<th><%= sortable "first_name" %></th>
 		<th><%= sortable "last_name" %></th>
+		<th>Credits</th>
+		<th>Pool Credits</th>
+		<th>Delete User</th>
 	</tr>
 	<% for user in @users %>
 	<tr>
@@ -23,6 +26,10 @@
 		<td><%= user.email %></td>
 		<td><%= user.first_name %></td>
 		<td><%= user.last_name %></td>
+		<td><%= user_credits(user) %></td>
+		<td><%= pool_credits(user) %></td>
+        <td> <%= link_to "delete", user, method: :delete, data: { confirm: "you sure?" } %>
+        </td>
 	</tr>
 	<% end %>
 </table>
