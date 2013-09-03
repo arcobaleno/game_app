@@ -1,0 +1,11 @@
+<tr>
+	<th>
+		<%= pool_item.id %>
+	</th>
+	<th>
+		<%= link_to "Pool#{pool_item.pool_id}", game_pool_path(pool_item.pool.game, pool_item.pool) %>
+	</th>
+	<th>
+		<%= pool_item.bet %>
+	</th>
+</tr>

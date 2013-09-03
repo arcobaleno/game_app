@@ -43,6 +43,9 @@ class UsersController < ApplicationController
     @players = current_user.players
     @pool_credits = @players.sum(:bet)
     @credit_code = Credit.find_by_credit_code(:credit_code)
+
+    @pool_items = current_user.players.paginate(page: params[:page])
+
     if banker?
       redirect_to show_banker_users_path
     end

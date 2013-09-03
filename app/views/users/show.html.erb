@@ -1,44 +1,66 @@
 <% provide(:title, full_name(@user)) %>
 
 <div class="row">
-	<%-# User Profile Picture -%>
-	<aside class="span2">
-		<%= image_tag @user.avatar_url.to_s, :id => 'profile' %>
-	</aside>
-	<%-# User contact Information-%>
-	<aside class="span4">
-		<section>
-			<p>
-			<h1>
-				<%= full_name(@user) %>
-			</h1>
-		    </p>
 
-			<h4>
-				Email: <%= @user.email %>
-			</h4>
+	<aside class="span6">
+		<div class="user_info">
+			<%-# User Profile Picture -%>
+			<div class="profile_pic">
+				<%= image_tag @user.avatar_url.to_s, :id => 'profile' %>
+			</div>
+			<%-# User contact Information-%>
+			<div class="profile_info">
+				<section>
+					<h1>
+						<%= full_name(@user) %>
+					</h1>
 
-		    <p>
-		    <h4>
-				<%= link_to "Update Profile", edit_user_path %>
-			</h4>
-		    </p>
-		</section>
+					<h4>
+						Email: <%= @user.email %>
+					</h4>
+
+				    <h4>
+						<%= link_to "Update Profile", edit_user_path %>
+					</h4>
+				    
+				</section>
+			</div>
+		</div>
 	</aside>
 
 	<aside class="span6">
 		<div class="user_credits">
-			<h3>
+			<h3 class="credit_info_label">
 				Credit Info:
 			</h3>
-			<p>
-				Credits in Bank:
-				<%= @player_credits %>
-			</p>
-			<p>
-				Credits in Pools:
-				<%= @pool_credits %>
-			</p>
+			<div class="pool_credits">
+				<h5>
+					Credits in Pools:
+				</h5>
+				<h1 class="pool_credit_count">
+					<%= @pool_credits %>
+				</h1>
+			</div>
+			<div class="player_credits">
+				<h5>
+					Credits in Bank:
+				</h5>
+				<h1 class="player_credit_count">
+					<%= @player_credits %>
+				</h1>
+			</div>
+			<div class="score_count">
+				<div class="wins">
+					<h3>
+						Wins:
+					</h3>
+				</div>
+				<div class="losses">
+					<h3>
+						Losses:
+					</h3>
+				</div>
+			</div>
 		</div>
 	</aside>
 </div>
@@ -53,7 +75,12 @@
 			<%= submit_tag "Redeem", :class => 'redeem_button' %>
 			</p>
 			<% end %>
-
 		</div>
 	</aside>
+	<aside class="span6">
+		<div class="participating_pools">
+			<h3 class="participating_pool_label">Participating Pools</h3>
+			<%= render 'shared/pool_feed' %>
+		</div>
+	</aside
 </div>

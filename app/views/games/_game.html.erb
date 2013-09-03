@@ -1,5 +1,17 @@
 <div class="game_partial">
-<h3>Game Partial</h3>
+	<h3><%= link_to "Game #{game.id}", game %> </h3>
 </br>
-<h3><%= link_to game.id, game %></h3>
+	<h5 class="center">
+		<%= game.team_one %>
+	</h5>
+
+	<h5 class="center">vs:</h5> 
+
+	<h5 class="center">
+		<%= game.team_two %>
+	</h5>
+
+	<h4 class="center">
+		Pools: <%= game.pools.count %>
+	</h4>
 </div>
