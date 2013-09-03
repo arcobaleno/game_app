@@ -23,11 +23,6 @@
             <%= link_to  "Transfer", transfer_credit_path(user), :method => :put %>
         </td>
         <% end %>
-
-        <% if current_user.user_type == 4 && !current_user?(user) %>
-        <td> <%= link_to "delete", user, method: :delete, data: { confirm: "you sure?" } %></td>
-        <% end %>
-
     </tr>
     </table>
 </li>
