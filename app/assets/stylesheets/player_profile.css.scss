@@ -14,6 +14,8 @@ div.profile_info {
 
 div.user_info {
 	border:2px solid black;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 	height:150px;
 	background-color:lightgrey;
 }
@@ -49,6 +51,8 @@ div.losses {
 
 .user_credits {
 	border:2px solid black;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 	background-color:grey;
 	height:150px;
 }
@@ -72,6 +76,8 @@ div.losses {
 .credit_redeem {
 	margin-top:5%;
 	border:2px solid black;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 	background-color:grey;
 	height:150px;
 }
