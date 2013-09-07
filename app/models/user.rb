@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  scope :vendors, where(:user_type => 2)
+
   attr_accessible :email, :last_name, :first_name, :password, :password_confirmation, :user_type, :avatar, :status, :created_at, :updated_at
   has_many :credits
   has_many :games
@@ -31,7 +33,9 @@ class User < ActiveRecord::Base
 
   #logic
 
-  
+  def self.banker
+    find_all_by_user_type(3)
+  end
 
   private
 

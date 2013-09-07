@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if admin?
     @users = User.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
     #Banker Function
-    @vendors = User.find_all_by_user_type(2)
+    @vendors = User.vendors
     else
       redirect_to permission_path
     end
@@ -39,11 +39,8 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-    @player_credits = Credit.find(:all, :conditions => {:user_id => current_user.id, :pool_id => nil}).count
-    @players = current_user.players
-    @pool_credits = @players.sum(:bet)
-    @credit_code = Credit.find_by_credit_code(:credit_code)
-
+    @player_credits = Credit.player_credits(current_user)
+    @pool_credits = Credit.pool_credits(current_user)
     @pool_items = current_user.players.paginate(page: params[:page])
 
     if banker?
@@ -78,13 +75,10 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @banker = User.find_all_by_user_type(3).first
-    @user_credits = Credit.find_all_by_user_id(@user)
-    @user_credits.each do |credit|
-      credit.user_id = @banker.id
-      credit.save
-    end
+    @banker = User.banker.first
+    Credit.transfer_user_credits_upon_destroy(@user, @banker)
     @user.destroy
+    # MUST DESTROY ALL ASSOCIATED PLAYERS AS WELL
     flash[:success] = "User Deleted!"
     redirect_to users_path
   end
