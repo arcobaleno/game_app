@@ -18,8 +18,8 @@ class PoolsController < ApplicationController
 	def show
 		@pool = Pool.find_by_id(params[:id])
 		@game = Game.find_by_id(params[:game_id], :include => [{ :pools => :user }])
-		@player = Player.new
-		@players = Player.find_all_by_pool_id(params[:id])
+		@player = Player.new #used in rendered form
+		@players = Player.find_all_by_pool_id(params[:id]) #use a scope for this
 		@pool_credits = Credit.find_all_by_pool_id(@pool).count
 
 		# JSON

@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
+  scope :bankers, where(:user_type => 3)
   scope :vendors, where(:user_type => 2)
+  scope :players, where(:user_type => 1)
 
   attr_accessible :email, :last_name, :first_name, :password, :password_confirmation, :user_type, :avatar, :status, :created_at, :updated_at
   has_many :credits
@@ -32,10 +34,6 @@ class User < ActiveRecord::Base
     mount_uploader :avatar, AvatarUploader
 
   #logic
-
-  def self.banker
-    find_all_by_user_type(3)
-  end
 
   private
 

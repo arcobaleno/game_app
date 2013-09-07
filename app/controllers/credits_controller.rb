@@ -53,14 +53,8 @@ class CreditsController < ApplicationController
 	# Custom Actions
 
 	def transfer
-	    @user = User.find(params[:id])
-	    @bankers = User.find_all_by_user_type(3)
-	    @banker = @bankers.first
-	    @banker_credits = Credit.find_all_by_user_id(@banker)
-	    @credit = @banker_credits.first
 	    if check_credits?
-		    @credit.user_id = @user.id
-		    @credit.save
+	    	Credit.transfer_credits_banker_to_vendor(User.find(params[:id]),User.bankers.first)
 		    flash[:success] = "transfer should work"
 		    redirect_to show_banker_users_path
 		else
@@ -73,11 +67,8 @@ class CreditsController < ApplicationController
 		@player = Player.find_by_id(params[:id])
 		@pool = Pool.find_by_id(@player.pool_id)
 		@game = Game.find_by_id(@pool.game_id)
-		@credits = Credit.find_all_by_pool_id(@pool)
-		@pay_one_credit = @credits.first
-		@pay_one_credit.user_id = @player.user_id
-		@pay_one_credit.pool_id = nil
-		if @pay_one_credit.save
+
+		if Credit.transfer_pool_credits_to_user(@pool,@player)
 			@player.destroy
 			flash[:success] = "Credit Paid Out"
 			redirect_to game_pool_path(@game,@pool)
@@ -88,11 +79,9 @@ class CreditsController < ApplicationController
 	end
 
 	def redeem_credits
-		@credits = Credit.search(params[:search])
-		if @credits.exists?
-		@credit_redeemed = @credits.first
-		@credit_redeemed.user_id = current_user.id
-		@credit_redeemed.save
+		@credit = Credit.search(params[:search])
+		if @credit.exists?
+		Credit.transfer_vendor_credits_to_user(@credit,current_user)
 		flash[:success] = "Credit Redeemed"
 		redirect_to current_user
 		else

@@ -6,4 +6,5 @@ class Game < ActiveRecord::Base
  has_many :pools
 
  default_scope order: 'games.created_at DESC'
+
 end

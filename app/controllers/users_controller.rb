@@ -39,8 +39,10 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-    @player_credits = Credit.player_credits(current_user)
+    #User type 1: Credit Dashboard
+    @player_credits = Credit.player_credits(current_user).count
     @pool_credits = Credit.pool_credits(current_user)
+    #Pools feed that user is in
     @pool_items = current_user.players.paginate(page: params[:page])
 
     if banker?
@@ -75,8 +77,9 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @banker = User.banker.first
-    Credit.transfer_user_credits_upon_destroy(@user, @banker)
+    #Gives Credits back to bank when user is deleted
+    Credit.transfer_user_credits_upon_destroy(@user, User.bankers.first)
+    #Deletes User
     @user.destroy
     # MUST DESTROY ALL ASSOCIATED PLAYERS AS WELL
     flash[:success] = "User Deleted!"
@@ -86,24 +89,21 @@ class UsersController < ApplicationController
   #Banker Account Actions:
   def show_banker
     @user = User.find(current_user)
+    @vendors = User.vendors
+    #Dashboard
     @total_credits = Credit.all.count
-    @bankers = User.find_all_by_user_type(3)
-    @credits_in_bank = Credit.find_all_by_user_id(@bankers).count
-    @vendors = User.find_all_by_user_type(2)
-    @credits_in_vendors = Credit.find_all_by_user_id(@vendors).count
-    @players = User.find_all_by_user_type(1)
-    @credits_in_players = Credit.find_all_by_user_id(@players).count
-    @credits_in_pools = Credit.find_all_by_user_id(nil).count
+    @all_credits_in_bank = Credit.all_credits_in(User.bankers).count #method
+    @all_credits_in_vendors = Credit.all_credits_in(User.vendors).count #method
+    @all_credits_in_players = Credit.all_credits_in(User.players).count #method
+    @all_credits_in_pools = Credit.all_pool_credits.count #scope
   end
-
+ 
   #Vendor Account Actions:
   def show_vendor
      @user = User.find(current_user)
+    #Show Credit Code to users
     if check_credits?
-      @vendor_credits = Credit.find_all_by_user_id(current_user)
-      @vendor_credit_count = @vendor_credits.count
-      @vendor_credit_first = @vendor_credits.first
-      @credit_code = @vendor_credit_first.credit_code
+      @credit = Credit.all_credits_in(current_user).first
     else
       flash[:notice] = "Vendor has no credits to offer"
       redirect_to @user
