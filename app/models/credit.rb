@@ -8,7 +8,7 @@ class Credit < ActiveRecord::Base
 
 	validates :credit_code, presence: true, length: {minimum: 5, maximum: 5}
 	
-	def random
+	def random #Generates Random Credit Code
 		self.credit_code = (0..4).map{ rand(36).to_s(36) }.join
 	end
 
@@ -52,11 +52,16 @@ class Credit < ActiveRecord::Base
 	end
 
 	#What happens when a user joins a pool
-	def self.transfer_user_credits_to_pool(current_user, pool) #NOTE will change for multiple credit transfer
-		@credit = find_all_by_user_id(current_user).first
-		@credit.user_id = nil
-		@credit.pool_id = pool.id
-		@credit.save
+	def self.transfer_user_credits_to_pool(current_user, pool, buy_in) #NOTE will change for multiple credit transfer
+		$i = 0
+		$num = buy_in
+		while $i < $num do
+			@credit = find_all_by_user_id(current_user).first
+			@credit.user_id = nil
+			@credit.pool_id = pool.id
+			@credit.save
+			$i +=1
+		end
 	end
 
 	#What happens when a user gets paid out from winning
@@ -65,6 +70,20 @@ class Credit < ActiveRecord::Base
 		@credit.user_id = player.user_id
 		@credit.pool_id = nil
 		@credit.save
+	end
+
+	#What happens when a user redeems a prize for credits
+	def self.transfer_user_credits_to_banker(user, prize_value)
+		$i = 0
+		$num = prize_value
+		while $i < $num do
+			@credits = Credit.find_all_by_user_id(user)
+			@credit = @credits.first #NOTE change so it works with transfer of multiple credits
+			@credit.user_id = User.bankers.first.id
+			@credit.save
+			$i +=1
+		end
+		return true
 	end
 
 	#What happens when a user gets destroyed/deleted

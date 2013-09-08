@@ -27,9 +27,9 @@ class PlayersController < ApplicationController
 		@player.user_id = current_user.id
 		@player.bet = @pool.buy_in
 
-		if check_credits?
+		if check_credits?(@pool.buy_in)
 			if @player.save
-				Credit.transfer_user_credits_to_pool(current_user, @pool)
+				Credit.transfer_user_credits_to_pool(current_user, @pool, @pool.buy_in)
 				flash[:success] = "You are now a member of this pool"
 				redirect_to game_pool_path(@game,@pool)
 			else
@@ -49,6 +49,12 @@ class PlayersController < ApplicationController
 	end
 
 	def destroy
+		@player = Player.find_by_id(params[:id])
+		if @player.destroy
+			flash[:notice] = "Player destroyed"
+		else
+			flash[:error] = "Sorry Player not destroyed"
+		end
 	end
 
 end
