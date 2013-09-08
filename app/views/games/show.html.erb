@@ -1,6 +1,10 @@
 <h1><%= @game.team_one %> vs. <%= @game.team_two %></h1>
 
-<p class="center">
+<p>
+	<%= link_to "Back to Games", games_path, class: "btn btn-large btn-primary" %>
+</p>
+
+<p>
 <%= link_to "Create New Pool", new_game_pool_path(@game), class: "btn btn-large btn-primary" %>
 </p>
 
