@@ -1,12 +1,33 @@
 /* Game Partial */
 
 .game_partial {
-	width:100px;
+	width:300px;
 	height:100px;
-	border:1px outset black;
+	border:1px solid black;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
 	background-color:white;
 	float:left;
 	margin-right:10px;
+}
+
+.game_partial_first {
+	width:100px;
+	height:100px;
+	float:left;
+	border-right:1px solid black;
+}
+
+.game_partial_second {
+	width:199px;
+	height:100px;
+	float:left;
+}
+
+h4#teams {
+	padding-top:10px;
+}
+
+p#game_time {
+	margin-top:30px;
 }

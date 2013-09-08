@@ -42,21 +42,22 @@
 </div>
 
 <div class="row">
-	<aside class="span6">
+	<div id="redeem_box" class="span6">
 		<div class="credit_redeem">
-			<h3 class="redeem_label">Redeem Code Here</h3>
+		
 			<%= form_tag redeem_credits_credit_path, :method => 'put' do %>
-			<p>
-			<%= text_field_tag :search, params[:search], :class => 'credit_redeem_form' %>
+	
+			<%= text_field_tag :search, params[:search], :class => 'credit_redeem_form', :placeholder => 'Enter Redemption Code' %>
 			<%= submit_tag "Redeem", :class => 'redeem_button' %>
-			</p>
+
 			<% end %>
 		</div>
-	</aside>
-	<aside class="span6">
+	</div>
+
+	<div id="pools_box" class="span6">
 		<div class="participating_pools">
 			<h3 class="participating_pool_label">Participating Pools</h3>
 			<%= render 'shared/pool_feed' %>
 		</div>
-	</aside
+	</div>
 </div>

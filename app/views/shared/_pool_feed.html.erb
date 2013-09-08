@@ -1,11 +1,6 @@
 <% if @pool_items.any? %>
-	<table class="table">
-		<tr>
-			<th>Player ID:</th>
-			<th>Pool #:</th>
-			<th>Bet Amount:</th>
-		</tr>
-		<%= render partial: 'shared/pool_item', collection: @pool_items %>
-	</table>
+	<%= render partial: 'shared/pool_item', collection: @pool_items %>
 	<%= will_paginate @pool_items %>
 <% end %>
+
+

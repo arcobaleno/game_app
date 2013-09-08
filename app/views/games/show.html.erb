@@ -1,9 +1,9 @@
-<h1>Game Page</h1>
+<h1><%= @game.team_one %> vs. <%= @game.team_two %></h1>
 
-<h3><%= @game.id %></h3>
-
-<h3><%= @game.team_one %> vs. <%= @game.team_two %></h3>
+<p class="center">
+<%= link_to "Create New Pool", new_game_pool_path(@game), class: "btn btn-large btn-primary" %>
+</p>
 
 <div>
-	<%= render @game.pools %>
+	<%= render @game.pools.sort_by &:id  %>
 </div>

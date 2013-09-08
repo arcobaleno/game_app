@@ -29,6 +29,7 @@ class PoolsController < ApplicationController
 	def create
 		@game = Game.find_by_id(params[:game_id])
 		@pool = @game.pools.build(params[:pool])
+		@pool.user_id = current_user.id
 		if @pool.save
 			flash[:success] = "Pool Created!"
 			redirect_to game_pool_path(@game,@pool)

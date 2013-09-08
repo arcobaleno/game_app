@@ -1,11 +1,43 @@
 
 .pool_partial {
-	width:145px;
-	height:145px;
-	border:1px outset black;
+	width:300px;
+	height:100px;
+	border:1px solid black;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
 	background-color:white;
 	float:left;
 	margin-right:10px;
+	margin-bottom:10px;
+}
+
+.pool_partial_first {
+	width:199px;
+	height:100px;
+	float:left;
+	border-right:1px solid black;
+}
+
+.pool_partial_second {
+	width:100px;
+	height:100px;
+	float:left;
+}
+
+p#pool_button {
+	margin-top:0px;
+	height:30px;
+	margin-bottom:0px;
+}
+
+h3#spot_count {
+	margin-top:10px;
+}
+
+h6.pool_partial_first_text {
+	margin-left:15px;
+}
+
+h6#pool_partial_first_buy_in {
+	margin-top:15px;
 }

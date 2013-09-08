@@ -1,7 +1,7 @@
 <h1>List of all Credits in System</h1>
-
-<%= link_to "Create New Credit", new_credit_path %>
-
+<p>
+<%= link_to "Create New Credit", new_credit_path, class: "btn btn-mini btn-primary" %>
+</p>
 <%= form_tag credits_path, :method => 'get' do %>
 	<%= hidden_field_tag :direction, params[:direction] %>
 	<%= hidden_field_tag :sort, params[:sort] %>

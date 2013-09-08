@@ -7,4 +7,10 @@ module PoolsHelper
 			return "Choose Team"
 		end
 	end
+
+	def pool_owner(user)
+		@user = User.find_by_id(user)
+		@user.first_name + " " + @user.last_name
+	end
+
 end

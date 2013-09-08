@@ -1,17 +1,22 @@
 <div class="game_partial">
-	<h3><%= link_to "Game #{game.id}", game %> </h3>
-</br>
-	<h5 class="center">
-		<%= game.team_one %>
-	</h5>
+	<div class="game_partial_first">
+		<h4 id="teams" class="center">
+			<%= game.team_one %>
+			</br>
+			vs.
+			</br>
+			<%= game.team_two %>
+		</h4>
+		<p class="center">
+			<%= link_to "Game #{game.id}", game, class: "btn btn-mini btn-primary" %>
+		</p>
+	</div>
 
-	<h5 class="center">vs:</h5> 
-
-	<h5 class="center">
-		<%= game.team_two %>
-	</h5>
-
-	<h4 class="center">
-		Pools: <%= game.pools.count %>
-	</h4>
+	<div class="game_partial_second">
+		<p id="game_time" class="center">
+			<%= game.time %>
+			</br>
+			Pools: <%= game.pools.count %>
+		</p>
+	</div>
 </div>
