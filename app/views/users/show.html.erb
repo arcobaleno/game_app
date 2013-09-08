@@ -1,68 +1,44 @@
 <% provide(:title, full_name(@user)) %>
 
 <div class="row">
-
-	<aside class="span6">
-		<div class="user_info">
-			<%-# User Profile Picture -%>
+	<div class="user_info">
+		<%-# User Profile Picture -%>
 			<div class="profile_pic">
 				<%= image_tag @user.avatar_url.to_s, :id => 'profile' %>
 			</div>
-			<%-# User contact Information-%>
+		<%-# User contact Information-%>
 			<div class="profile_info">
-				<section>
-					<h1>
-						<%= full_name(@user) %>
-					</h1>
+				<h4 id="user_name">
+					<%= full_name(@user) %>
+				</h4>
 
-					<h4>
-						Email: <%= @user.email %>
-					</h4>
-
-				    <h4>
-						<%= link_to "Update Profile", edit_user_path %>
-					</h4>
-				    
-				</section>
+				<h4>
+					<%= @user.email %>
+				</h4>
 			</div>
+
+		<div class="player_credits">
+			</br>
+				<p class="credit_count">
+					Credits in Bank: <%= @player_credits %>
+				</p>
+			</br>
+				<p class="credit_count">
+					Credits in Pools: <%= @pool_credits %>
+				</p>
+			</br>
 		</div>
-	</aside>
 
-	<aside class="span6">
-		<div class="user_credits">
-			<h3 class="credit_info_label">
-				Credit Info:
-			</h3>
-			<div class="pool_credits">
-				<h5>
-					Credits in Pools:
-				</h5>
-				<h1 class="pool_credit_count">
-					<%= @pool_credits %>
-				</h1>
-			</div>
-			<div class="player_credits">
-				<h5>
-					Credits in Bank:
-				</h5>
-				<h1 class="player_credit_count">
-					<%= @player_credits %>
-				</h1>
-			</div>
-			<div class="score_count">
-				<div class="wins">
-					<h3>
-						Wins:
-					</h3>
-				</div>
-				<div class="losses">
-					<h3>
-						Losses:
-					</h3>
-				</div>
-			</div>
+		<div class="score_count">
+			<p class="score">
+				Wins:
+			</p>
+		</br>
+			<p class="score">
+				Losses:
+			</p>
 		</div>
-	</aside>
+	</div>
 </div>
 
 <div class="row">

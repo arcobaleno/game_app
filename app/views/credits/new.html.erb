@@ -1,18 +1,17 @@
 <h1>Credit Creation Page</h1>
 
 <div class="row">
-	<div class="span6 offset3">
+	<div class="center">
 	
-<%= form_for(@credit) do |f| %>
-
-	<%= f.label :credit_code %>
-	<%= f.text_field :credit_code %>
+	<%= form_for(@credit) do |f| %>
 
 	<%= f.hidden_field :user_id, :value => current_user.id %>
 
-	<%= f.submit "Create Credit", class: "btn btn-large btn-primary" %>
+	<%= f.hidden_field :credit_code, :value => (0..4).map{ rand(36).to_s(36) }.join %>
 
-<% end %>
+	<%= f.submit "Create Credit with Unique Credit Code", class: "btn btn-large btn-primary" %>
+
+	<% end %>
 
 	</div>
 </div>
