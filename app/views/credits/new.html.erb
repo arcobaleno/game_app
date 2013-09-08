@@ -7,8 +7,6 @@
 
 	<%= f.hidden_field :user_id, :value => current_user.id %>
 
-	<%= f.hidden_field :credit_code, :value => (0..4).map{ rand(36).to_s(36) }.join %>
-
 	<%= f.submit "Create Credit with Unique Credit Code", class: "btn btn-large btn-primary" %>
 
 	<% end %>

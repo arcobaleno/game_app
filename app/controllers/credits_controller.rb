@@ -15,6 +15,7 @@ class CreditsController < ApplicationController
 
 	def create
 		@credit = Credit.new(params[:credit])
+		@credit.random
 		if @credit.save
 			flash[:success] = "Credit Created!"
 			redirect_to credits_path

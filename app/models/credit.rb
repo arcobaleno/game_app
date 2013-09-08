@@ -3,10 +3,15 @@ class Credit < ActiveRecord::Base
 
 	attr_accessible :credit_id, :user_id, :pool_id, :credit_code, :value, :created_at, :updated_at
 	belongs_to :user
+	belongs_to :pool
 	#belongs_to :pool
 
 	validates :credit_code, presence: true, length: {minimum: 5, maximum: 5}
 	
+	def random
+		self.credit_code = (0..4).map{ rand(36).to_s(36) }.join
+	end
+
 	# Search Bar
 
 	def self.search(search)
@@ -71,4 +76,5 @@ class Credit < ActiveRecord::Base
 		end
 		# MUST DESTROY ALL ASSOCIATED PLAYERS AS WELL
 	end
+	
 end

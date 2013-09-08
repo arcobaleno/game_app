@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   scope :bankers, where(:user_type => 3)
   scope :vendors, where(:user_type => 2)
   scope :players, where(:user_type => 1)
-
+  
   attr_accessible :email, :last_name, :first_name, :password, :password_confirmation, :user_type, :avatar, :status, :created_at, :updated_at
   has_many :credits
   has_many :games
