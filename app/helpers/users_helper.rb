@@ -17,9 +17,9 @@ module UsersHelper
 		current_user.user_type == 3
 	end
 
-	def check_credits?
+	def check_credits?(value)
 		@credits = Credit.find_all_by_user_id(current_user)
-		@credits.count > 0
+		@credits.count >= value
 	end
 
 	def user_credits(user)

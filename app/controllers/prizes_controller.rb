@@ -35,14 +35,10 @@ class PrizesController < ApplicationController
 	end
 
 	def redeem_prize
-		if check_credits?
-
-			@credits = Credit.player_credits(current_user)
-			@credit = @credits.first #NOTE change so it works with transfer of multiple credits
-			@credit.user_id = User.bankers.first.id
-
-			if @credit.save
-				Prize.redeem_prize_for(current_user, Prize.find(params[:id]))
+		@prize = Prize.find_by_id(params[:id])
+		if check_credits?(@prize.value)
+			if Credit.transfer_user_credits_to_banker(current_user, @prize.value)
+				Prize.redeem_prize_for(current_user, @prize)
 				flash[:success] = "Prize Redeemed!"
 				redirect_to prizes_path
 			else
