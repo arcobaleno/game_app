@@ -5,7 +5,7 @@
 	border:1px solid black;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
-	background-color:white;
+	background-color:#BFB9CB;
 	float:left;
 	margin-right:10px;
 	margin-bottom:10px;
@@ -25,7 +25,7 @@
 }
 
 p#pool_button {
-	margin-top:0px;
+	margin-top:-20px;
 	height:30px;
 	margin-bottom:0px;
 }
@@ -34,10 +34,11 @@ h3#spot_count {
 	margin-top:10px;
 }
 
-h6.pool_partial_first_text {
+p.pool_partial_first_text {
 	margin-left:15px;
 }
 
-h6#pool_partial_first_buy_in {
+p#pool_partial_first_buy_in {
 	margin-top:15px;
 }
+

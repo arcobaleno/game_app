@@ -1,12 +1,14 @@
 <h1><%= @game.team_one %> vs. <%= @game.team_two %></h1>
 
-<p>
-	<%= link_to "Back to Games", games_path, class: "btn btn-large btn-primary" %>
-</p>
+<div id="games_buttons" class="row">
+	<div class="back_to_games_button">
+		<%= link_to "Back to Games", games_path, class: "btn btn-large btn-primary" %>
+	</div>
 
-<p>
-<%= link_to "Create New Pool", new_game_pool_path(@game), class: "btn btn-large btn-primary" %>
-</p>
+	<div class="create_new_pool_button">
+		<%= link_to "Create New Pool", new_game_pool_path(@game), class: "btn btn-large btn-primary" %>
+	</div>
+</div>
 
 <div>
 	<%= render @game.pools.sort_by &:id  %>

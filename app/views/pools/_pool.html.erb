@@ -1,25 +1,23 @@
 <div class="pool_partial">
 
 	<div class="pool_partial_first">
-		<h6 id="pool_partial_first_buy_in" class="pool_partial_first_text">
+		<p id="pool_partial_first_buy_in" class="pool_partial_first_text">
 			Buy in: <%= pool.buy_in %>
-		</h6>
-	</br>
-		<h6 class="pool_partial_first_text">
+		</p>
+		<p class="pool_partial_first_text">
 			Type: <%= pool_type(pool) %>
-		</h6>
-	</br>
-		<h6 class="pool_partial_first_text">
-			Owner:
-		</h6>
+		</p>
+		<p class="pool_partial_first_text">
+			Owner: <%= pool_owner(pool.user_id) %>
+		</p>
 	</div>
 	<div class="pool_partial_second">
 		<h3 id="spot_count" class="center">
 			<%= pool.max_players - pool.players.count %>
 		</h3>
-		<h6 class="center">
+		<p class="center">
 			Spots Remaining
-		</h6>
+		</p>
 		<p id="pool_button" class="center">
 			<%= link_to "Pool #{pool.id}", game_pool_path(@game, pool), class: "btn btn-mini btn-primary" %>
 		</p>

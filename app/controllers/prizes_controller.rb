@@ -55,9 +55,18 @@ class PrizesController < ApplicationController
 	end
 
 	def edit
+		@prize = Prize.find(params[:id])
 	end
 
 	def update
+		@prize = Prize.find(params[:id])
+		if @prize.update_attributes(params[:prize])
+			flash[:success] = "Prize info Updated!"
+			redirect_to prizes_path
+		else
+			flash[:notice] = "Prize info not Updated!"
+			render 'edit'
+		end
 	end
 
 	def destroy

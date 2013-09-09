@@ -1,4 +1,9 @@
-<h1>Prizes</h1>
+<h1>Prize Board</h1>
+
+<% if current_user.user_type == 4 %>
+	<h3><%= link_to "New Prize", new_prize_path, class: "btn btn-large btn-primary" %></h3>
+	</br>
+<% end %>
 <div class="row">
 	<div class="span6">
 		<div class="available_prizes">
@@ -7,8 +12,6 @@
 			<%= render @available_prizes %>
 		</div>
 	</div>
-
-	</br>
 
 	<div class="span6">
 		<div class="redeemed_prizes">

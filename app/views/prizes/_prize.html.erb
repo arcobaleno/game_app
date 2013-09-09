@@ -1,18 +1,14 @@
-<div class="prize_box">
-	<h3>Prize <%= prize.id %></h3>
-	<table class="table">
-		<tr>
-			<th>Photo:</th>
-			<th>Description:</th>
-			<th>Redeem:</th>
-		</tr>
-		<tr>
-			<td>PHOTO</td>
-			<td><%= prize.description%></td>
-			<td><%= link_to "Redeem", redeem_prize_prize_path(prize), :method => 'put' %></td>
-		</tr>
-	</table>
+<div id="prize_box" class="center">
+	<div class="prize_box_top">
+		<h3 id="prize_description"><%= prize.description %></h3>
+		<h4 class="center">Cost: <%= prize.value %> credits</h4>
+	</div>
 
+	<div class="prize_box_right">
+		<h3 id="prize_box_photo">[Photo]</h3>
+	</div>
 
-	
+	<div class="prize_box_bottom">
+		<p id="prize_redeem_button" class="center"><%= link_to "Redeem", redeem_prize_prize_path(prize), :method => 'put', class: "btn btn-large btn-primary" %></p>
+	</div>
 </div>

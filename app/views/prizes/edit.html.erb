@@ -1,1 +1,23 @@
 <h1>Prize Edit Page</h1>
+
+<h3>Make Changes</h3>
+	
+		<%= form_for(@prize) do |f| %>
+
+		<%= f.label :value %>
+		<%= f.text_field :value %>
+
+		<%= f.label :prize_type %>
+		<%= f.text_field :prize_type %>
+
+		<%= f.label :description%>
+		<%= f.text_field :description %>
+
+		<%= f.label :redeemed %>
+		<%= f.text_field :redeemed %>
+
+		<%= f.label :mailed %>
+		<%= f.text_field :mailed %>
+
+		<%= f.submit "Save Changes", class: "btn btn-large btn-primary" %>
+		<% end %>

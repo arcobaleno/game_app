@@ -18,13 +18,10 @@
 										['Soccer', 'Soccer'],
 										['Tennis', 'Tennis']
 										])) %>
-				<%= f.label :date, "Date of Event" %>
-				<%= f.date_select :date, :order => [:month, :day, :year] %>
-
 				<div class="time">
 						<%= f.label :time, "Time of Event" %>
 					
-						<%= f.time_select :time, :prompt => {:hour => 'Choose hour', :minute => 'Choose minute', :second => 'Choose seconds'} %>
+						<%= f.datetime_select :time, :prompt => {:hour => 'Choose hour', :minute => 'Choose minute', :second => 'Choose seconds'} %>
 				</div>
 		</div>
 </div>
