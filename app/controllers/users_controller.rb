@@ -102,7 +102,7 @@ class UsersController < ApplicationController
   def show_vendor
      @user = User.find(current_user)
     #Show Credit Code to users
-    if check_credits?
+    if check_credits?(1)
       @credit = Credit.all_credits_in(current_user).first
     else
       flash[:notice] = "Vendor has no credits to offer"
