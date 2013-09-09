@@ -4,9 +4,12 @@
         <th rowspan="2" style="width:50px; height:30px;"><%= image_tag user.avatar_url.to_s, :id => 'profile' %></th>
 		<th>Name:</th>
         <th>Email:</th>
+        <th>
+            Total Credits:
+        </th>
         <% if current_user.user_type == 3 %>
         <th>
-            Transfer Credit
+            Transfer Credit:
         </th>
         <% end %>
         <% if current_user.user_type == 4 && !current_user?(user) %>
@@ -17,6 +20,9 @@
     	<th><%= link_to full_name(user), user %></th>
         <td>
             <%= user.email %>
+        </td>
+         <td>
+            <%= user.credits.count %>
         </td>
         <% if current_user.user_type == 3 %>
         <td>

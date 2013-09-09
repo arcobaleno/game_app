@@ -54,12 +54,12 @@ class CreditsController < ApplicationController
 	# Custom Actions
 
 	def transfer
-	    if check_credits?(1)
+	    if check_credits?(params[:amount].to_i)
 	    	Credit.transfer_credits_banker_to_vendor(User.find(params[:id]),User.bankers.first,params[:amount])
 		    flash[:success] = "transfer should work"
 		    redirect_to show_banker_users_path
 		else
-			flash[:notice] = "banker has no credits to transfer"
+			flash[:notice] = "banker has not enough credits to transfer"
 			redirect_to show_banker_users_path
 		end
  	end
