@@ -18,6 +18,7 @@
 	<% if current_user.user_type == 4 %>
 	<div>
 		<h3><%= link_to player.id, payout_credit_path(player), :method => 'put' %></h3>
+		<h3><%= link_to "delete", game_pool_player_path(@game,@pool,player), :method => 'delete' %></h3>
 	</div>
 	<% end %>
 </div>

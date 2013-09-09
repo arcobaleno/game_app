@@ -49,12 +49,14 @@ class PlayersController < ApplicationController
 	end
 
 	def destroy
-		@player = Player.find_by_id(params[:id])
+		@player = Player.find(params[:id])
+		@pool = Pool.find_by_id(@player.pool_id)
+		@game = Game.find_by_id(@pool.game_id)
 		if @player.destroy
 			flash[:notice] = "Player destroyed"
+			redirect_to game_pool_path(@game,@pool)
 		else
 			flash[:error] = "Sorry Player not destroyed"
 		end
 	end
-
 end

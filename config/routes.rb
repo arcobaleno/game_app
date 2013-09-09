@@ -24,7 +24,11 @@ GameApp::Application.routes.draw do
 
   resources :games do
     resources :pools do
-      resources :players
+      resources :players do
+        member do
+          put :destroy_player
+        end
+      end
     end
   end
 
