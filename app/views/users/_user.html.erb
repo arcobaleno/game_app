@@ -22,10 +22,9 @@
         <td>
             <%= form_tag transfer_credit_path(user), :method => :put, :method => 'put' do %>
 
-            <%= text_field_tag :amount, params[:amount] %>
+            <%= text_field_tag :amount, params[:amount], :class => 'amount' %>
 
-            <%= submit_tag "transfer" %>
-
+            <%= submit_tag "transfer", :class => 'amount_button' %>
         <% end %>
         </td>
         <% end %>

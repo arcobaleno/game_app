@@ -1,3 +1,17 @@
 /* Single User that gets rendered in an array */
 
 table#user_table td {width:50%}
+
+/* Transfer Credits to Vendor */
+
+.amount {
+	width:40px;
+
+}
+
+.amount_button {
+	margin-left:20px;
+	margin-top:5px;
+	border:2px solid;
+	border-radius:10px;
+}
