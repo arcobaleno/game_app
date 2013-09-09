@@ -38,10 +38,15 @@ class Credit < ActiveRecord::Base
 	end
 
 	#What happens when a banker transfers credits to a vendor
-	def self.transfer_credits_banker_to_vendor(vendor, banker)
-		@credit = find_all_by_user_id(banker).first
-		@credit.user_id = vendor.id
-		@credit.save
+	def self.transfer_credits_banker_to_vendor(vendor, banker, amount)
+		$i = 0
+		$num = amount.to_i
+		while $i < $num do
+			@credit = find_all_by_user_id(banker).first
+			@credit.user_id = vendor.id
+			@credit.save
+			$i +=1
+		end
 	end
 
 	#What happens when a user redeems a credit from a vendor
