@@ -1,0 +1,21 @@
+<% provide(:title, 'Microposts') %>
+<h1>Microposts</h1>
+
+<div class="row">
+	<div class="span6 offset3">
+	
+<%= form_for(@micropost) do |f| %>
+
+	<%= f.label :content %>
+	<%= f.text_field :content %>
+
+	<%= f.label :user_id %>
+	<%= f.text_field :user_id %>
+
+	<%= f.label :pool_id %>
+	<%= f.text_field :pool_id %>
+
+	<%= f.submit "Post", class: "btn btn-large btn-primary" %>
+<% end %>
+	</div>
+</div>

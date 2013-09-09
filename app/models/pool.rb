@@ -3,8 +3,8 @@ class Pool < ActiveRecord::Base
 
 	has_many :credits
 	has_many :players
+	has_many :microposts
 	belongs_to :game
 	belongs_to :user
-
 
 end

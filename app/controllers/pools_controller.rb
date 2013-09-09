@@ -22,6 +22,9 @@ class PoolsController < ApplicationController
 		@players = Player.find_all_by_pool_id(params[:id]) #use a scope for this
 		@pool_credits = Credit.find_all_by_pool_id(@pool).count
 
+		@microposts = Micropost.pool_microposts(@pool)
+  		@micropost = Micropost.new
+  		
 		# JSON
 		# render json: {pool: @pool, game: @game, player: @player, players: @players, pool_credits: @pool_credits}
 	end

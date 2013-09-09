@@ -1,0 +1,17 @@
+<div class="row">
+			<div style="width:50px; height:30px;" class="span2">
+				<%= image_tag @user.avatar_url.to_s, :id => 'profile' %>
+			</div>
+
+			<div class="span2">
+				<h4>
+					<%= full_name(@user.first_name, @user.last_name) %>
+				</h4>
+			</div>
+		    
+		    <div class="span2">
+			   	<h4>
+			   		Post: <%= @micropost.content %>
+			   	</h4>
+		   </div>
+</div>

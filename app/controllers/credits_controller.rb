@@ -69,7 +69,8 @@ class CreditsController < ApplicationController
 		@pool = Pool.find_by_id(@player.pool_id)
 		@game = Game.find_by_id(@pool.game_id)
 
-		if Credit.transfer_pool_credits_to_user(@pool,@player)
+		if 	check_credits?(@pool.buy_in)
+			Credit.transfer_pool_credits_to_user(@pool,@player,params[:amount])
 			flash[:success] = "Credit Paid Out"
 			redirect_to game_pool_path(@game,@pool)
 		else

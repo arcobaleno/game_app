@@ -9,6 +9,7 @@ GameApp::Application.routes.draw do
   end
 
   resources :sessions, only: [:new, :create, :destroy]
+  resources :microposts
 
   # Routes for Credit System
   

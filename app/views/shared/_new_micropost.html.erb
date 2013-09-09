@@ -1,0 +1,10 @@
+<div class="bantr_form">
+	<%= form_for(@micropost) do |f| %>
+		<%= f.text_area :content, placeholder: "an exchange of light, playful, teasing, remarks...", :rows => "8", :class => "span6" %>
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+		<%= f.hidden_field :pool_id, :value => @pool.id %>
+		<div id="bantr_button">
+		<%= f.submit "Post", class: "btn btn-mini btn-inverse" %>
+		</div>
+	<% end %>
+</div>

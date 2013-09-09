@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130902191425) do
+ActiveRecord::Schema.define(:version => 20130909204705) do
 
   create_table "addresses", :force => true do |t|
     t.integer "user_id"
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(:version => 20130902191425) do
     t.datetime "updated_at"
     t.date     "date"
     t.time     "time"
+  end
+
+  create_table "microposts", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "pool_id"
+    t.string   "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "players", :force => true do |t|

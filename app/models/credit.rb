@@ -70,11 +70,16 @@ class Credit < ActiveRecord::Base
 	end
 
 	#What happens when a user gets paid out from winning
-	def self.transfer_pool_credits_to_user(pool, player)
-		@credit = find_all_by_pool_id(pool).first
-		@credit.user_id = player.user_id
-		@credit.pool_id = nil
-		@credit.save
+	def self.transfer_pool_credits_to_user(pool, player, amount)
+		$i = 0
+		$num = amount.to_i
+		while $i < $num do
+			@credit = find_all_by_pool_id(pool).first
+			@credit.user_id = player.user_id
+			@credit.pool_id = nil
+			@credit.save
+			$i +=1
+		end
 	end
 
 	#What happens when a user redeems a prize for credits
