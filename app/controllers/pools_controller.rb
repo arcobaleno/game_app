@@ -49,6 +49,8 @@ class PoolsController < ApplicationController
 	end
 
 	def destroy
+		flash[:success] = "Pool Created!"
+		redirect_to root_path
 	end
 	
 end

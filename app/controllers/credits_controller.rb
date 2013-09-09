@@ -54,7 +54,7 @@ class CreditsController < ApplicationController
 	# Custom Actions
 
 	def transfer
-	    if check_credits?
+	    if check_credits?(1)
 	    	Credit.transfer_credits_banker_to_vendor(User.find(params[:id]),User.bankers.first)
 		    flash[:success] = "transfer should work"
 		    redirect_to show_banker_users_path
