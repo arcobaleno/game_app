@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130909204705) do
+ActiveRecord::Schema.define(:version => 20130909233937) do
 
   create_table "addresses", :force => true do |t|
     t.integer "user_id"
@@ -43,8 +43,7 @@ ActiveRecord::Schema.define(:version => 20130909204705) do
     t.string   "winner"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.date     "date"
-    t.time     "time"
+    t.datetime "date_time"
   end
 
   create_table "microposts", :force => true do |t|

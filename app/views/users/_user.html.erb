@@ -1,8 +1,6 @@
-<li>
-	<table id="user_table" class="table table-bordered">
-	<tr>
-        <th rowspan="2" style="width:50px; height:30px;"><%= image_tag user.avatar_url.to_s, :id => 'profile' %></th>
-		<th>Name:</th>
+<table id="user_table" class="table table-bordered">
+    <tr>
+    	<th>Name:</th>
         <th>Email:</th>
         <th>
             Total Credits:
@@ -15,8 +13,8 @@
         <% if current_user.user_type == 4 && !current_user?(user) %>
         <th>Delete Account:</th>
         <% end %>
-	</tr>
-	<tr>
+    </tr>
+    <tr>
     	<th><%= link_to full_name(user), user %></th>
         <td>
             <%= user.email %>
@@ -35,5 +33,4 @@
         </td>
         <% end %>
     </tr>
-    </table>
-</li>
+</table>
