@@ -8,8 +8,16 @@ GameApp::Application.routes.draw do
     end
   end
 
+  resources :friendships do
+    member do
+      put :accept
+      delete :decline
+      delete :cancel
+      delete :delete
+    end
+  end
+
   resources :sessions, only: [:new, :create, :destroy]
-  resources :microposts
 
   # Routes for Credit System
   
@@ -26,6 +34,7 @@ GameApp::Application.routes.draw do
   resources :games do
     resources :pools do
       resources :players
+      resources :microposts
     end
   end
 

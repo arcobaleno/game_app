@@ -11,6 +11,11 @@ class User < ActiveRecord::Base
   has_many :prizes
   has_many :addresses
   has_many :microposts
+  has_many :friendships
+  
+  has_many :friends, :through => :friendships, :conditions => "status = 'accepted'"
+  has_many :requested_friends, :through => :friendships, :source => :friend, :conditions => "status = 'requested'"
+  has_many :pending_friends, :through => :friendships, :source => :friend, :conditions => "status = 'pending'"
 
   has_secure_password #Rails 3 helper method to require/encrpypt password and password confirmation using password digest
 
@@ -23,6 +28,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
+  #Index Search Bar
   def self.search(search)
     if search
       where('first_name LIKE ?', "%#{search}%")
@@ -33,8 +39,6 @@ class User < ActiveRecord::Base
 
   require 'carrierwave/orm/activerecord'
     mount_uploader :avatar, AvatarUploader
-
-  #logic
 
   private
 

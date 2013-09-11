@@ -7,13 +7,9 @@ class UsersController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   def index
-    if admin?
     @users = User.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
     #Banker Function
     @vendors = User.vendors
-    else
-      redirect_to permission_path
-    end
   end
 
   def new

@@ -42,7 +42,11 @@
 </div>
 
 <div class="row">
-	<div id="redeem_box" class="span6">
+	<div id="left_side" class="span6">
+		
+	</div>
+
+	<div id="right_side" class="span6">
 		<div class="credit_redeem">
 		
 			<%= form_tag redeem_credits_credit_path, :method => 'put' do %>
@@ -52,9 +56,7 @@
 
 			<% end %>
 		</div>
-	</div>
 
-	<div id="pools_box" class="span6">
 		<div class="participating_pools">
 			<h3 class="participating_pool_label">Participating Pools</h3>
 			<%= render 'shared/pool_feed' %>

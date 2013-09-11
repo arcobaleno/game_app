@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130909233937) do
+ActiveRecord::Schema.define(:version => 20130911021326) do
 
   create_table "addresses", :force => true do |t|
     t.integer "user_id"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(:version => 20130909233937) do
     t.integer  "value",       :default => 1
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "friendships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.string   "status"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.datetime "accepted_at"
   end
 
   create_table "games", :force => true do |t|
@@ -93,9 +102,9 @@ ActiveRecord::Schema.define(:version => 20130909233937) do
     t.string   "remember_token"
     t.integer  "user_type",       :default => 1
     t.string   "avatar"
-    t.integer  "status",          :default => 1
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "active",          :default => true
   end
 
 end

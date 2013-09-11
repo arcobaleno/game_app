@@ -1,0 +1,87 @@
+<% provide(:title, 'All Potential Friends') %>
+
+<h2>All Potential Friends</h2>
+
+<table class="table">
+	<tr>
+		<th>Name</th>
+		<th>Add Friend</th>
+	</tr>
+	<% for user in @users %>
+	<% if user != current_user %>
+		<tr>
+			<td><%= full_name(user) %></td>
+			<td>
+				<%= friendship_status(current_user, user) %>
+				<% unless Friendship.exists?(current_user, user) %>
+				<br />
+				<%= button_to "Add Friend", friendships_path(:id => user), :method => :post, :confirm => "Send friend request to #{full_name(@user)}?" %>
+				<% end %>
+			</td>
+		</tr>
+	<% end %>
+	<% end %>
+</table>
+
+	<h2> <%= @user.first_name %>'s Friends </h2>
+
+	<table class="table table-bordered">
+		<tr>
+			<th colspan="3" align="left">
+				<%= pluralize(@user.friends.count, "Friend") %>
+			</th>
+		</tr>
+
+		<% @user.friends.each do |friend| %>
+
+		<tr>
+			<td width='50'>
+				<%= link_to profile_pic_for(friend, :thumb), profile_for(friend) %>
+			</td>
+			<td><%= link_to full_name(friend), profile_for(friend) %>
+			</td>
+			<td>
+				<% unless hide_edit_links? %>
+					<%= button_to "Delete", delete_friendship_path(:user => friend), :method => :delete, :confirm => "you sure?" %>
+				<% end %>
+			</td>
+		</tr>
+		<% end %>
+			
+		<% unless @user.requested_friends.empty? or hide_edit_links? %>
+			<tr>
+				<th colspan="3" align="left">
+					<%= pluralize(@user.requested_friends.count, "requested friend") %>
+				</th>
+			</tr>
+
+			<% @user.requested_friends.each do |requester| %>
+
+			<tr>
+				<td>
+					<%= link_to full_name(requester), profile_for(requester) %>
+				</td>
+
+				<td><%= button_to "Accept", accept_friendship_path(:user => requester), :method => :put, :confirm => "you sure?" %>
+
+					<%= button_to "Decline", decline_friendship_path(:user => requester), :method => :delete, :confirm => "you sure?" %>
+				</td>
+			</tr>
+			<% end %>
+		<% end %>
+
+		<% unless @user.pending_friends.empty? or hide_edit_links? %>
+			<tr>
+				<th colspan="3" align="left">
+					<%= pluralize(@user.pending_friends.count, "pending friend") %>
+				</th>
+			</tr>
+			<% @user.pending_friends.each do |pending_friend| %>
+			<tr>
+				<td><%= link_to full_name(pending_friend), pending_friend %></td>
+				<td><%= button_to "Cancel Request", cancel_friendship_path(pending_friend), :method => :delete, :confirm => "you sure? #{full_name(pending_friend)}" %></td>
+			</tr>
+			<% end %>
+		<% end %>
+	</table>
+

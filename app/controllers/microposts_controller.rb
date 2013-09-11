@@ -9,10 +9,12 @@ class MicropostsController < ApplicationController
 	end
 
 	def create
+		@game = Game.find(params[:game_id])
+		@pool = Pool.find(params[:pool_id])
 		@micropost = Micropost.new(params[:micropost])
 		if @micropost.save
 			flash[:success] = "Micropost Created"
-			redirect_to root_path
+			redirect_to game_pool_path(@game,@pool)
 		else
 			flash[:error] = "Micropost not created, please try again!"
 			redirect_to root_path
