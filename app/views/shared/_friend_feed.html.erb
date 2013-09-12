@@ -1,28 +1,5 @@
 <% provide(:title, 'All Potential Friends') %>
 
-<h2>All Potential Friends</h2>
-
-<table class="table">
-	<tr>
-		<th>Name</th>
-		<th>Add Friend</th>
-	</tr>
-	<% for user in @users %>
-	<% if user != current_user %>
-		<tr>
-			<td><%= full_name(user) %></td>
-			<td>
-				<%= friendship_status(current_user, user) %>
-				<% unless Friendship.exists?(current_user, user) %>
-				<br />
-				<%= button_to "Add Friend", friendships_path(:id => user), :method => :post, :confirm => "Send friend request to #{full_name(user)}?" %>
-				<% end %>
-			</td>
-		</tr>
-	<% end %>
-	<% end %>
-</table>
-
 	<h2> <%= @user.first_name %>'s Friends </h2>
 
 	<table class="table table-bordered">
@@ -59,7 +36,7 @@
 					<%= link_to full_name(requester), requester %>
 				</td>
 
-				<td><%= button_to "Accept", accept_friendship_path(:id => requester), :method => :put, :confirm => "you sure?" %>
+				<td><%= button_to "Accept", accept_friendship_path(:id => requester), :method => :put %>
 
 					<%= button_to "Decline", decline_friendship_path(:id => requester), :method => :delete, :confirm => "you sure?" %>
 				</td>
@@ -81,4 +58,3 @@
 			<% end %>
 		<% end %>
 	</table>
-

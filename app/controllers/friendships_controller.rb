@@ -20,7 +20,7 @@ before_filter :setup_friends
     else
       flash[:notice] = "No friendship request from #{full_name(@friend)}."
     end
-    redirect_to friendships_path
+      redirect_to(:back)
   end
 
   def decline
@@ -30,7 +30,7 @@ before_filter :setup_friends
     else
       flash[:notice] = "No friendship request from #{full_name(@friend)}."
     end
-    redirect_to friendships_path
+      redirect_to(:back)
   end
 
   def cancel
@@ -40,7 +40,7 @@ before_filter :setup_friends
     else
       flash[:notice] = "No request for friendship."
     end
-    redirect_to friendships_path
+    redirect_to(:back)
   end
 
   def delete
@@ -50,7 +50,7 @@ before_filter :setup_friends
     else
       flash[:notice] = "Not a friend with #{full_name(@friend)}."
     end
-    redirect_to friendships_path
+    redirect_to(:back)
   end
 
   private
