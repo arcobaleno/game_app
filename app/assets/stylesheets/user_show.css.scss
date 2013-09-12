@@ -23,7 +23,7 @@ div.profile_info {
 }
 
 div.user_info {
-	border:2px solid black;
+	border:2px solid white;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 	height:150px;
@@ -86,9 +86,9 @@ div.score_count {
 	margin-left:0px;
 }
 
-.credit_redeem {
+div.credit_redeem {
 	margin-top:5%;
-	border:2px solid black;
+	border:2px solid white;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 	background-color:grey;
@@ -122,11 +122,11 @@ div.score_count {
 	margin-bottom:2%;
 }
 
-.participating_pools {
+div.participating_pools {
 	margin-top:5%;
 	-moz-border-radius: 10px;
 	border-radius:10px;
-	border:2px solid black;
+	border:2px solid white;
 	background-color:grey;
 }
 
