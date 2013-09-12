@@ -1,65 +1,78 @@
 <% provide(:title, full_name(@user)) %>
 
 <div class="row">
-	<div class="user_info">
-		<%-# User Profile Picture -%>
-			<div class="profile_pic">
-				<%= image_tag @user.avatar_url.to_s, :id => 'profile' %>
-			</div>
-		<%-# User contact Information-%>
-			<div class="profile_info">
-				<h4 id="user_name">
-					<%= full_name(@user) %>
-				</h4>
+	<div class="backdrop">
+		<div class="user_info">
+			<%-# User Profile Picture -%>
+				<div class="profile_pic">
+					<%= image_tag @user.avatar_url.to_s, :id => 'profile' %>
+				</div>
+			<%-# User contact Information-%>
+				<div class="profile_info">
+					<h4 id="user_name">
+						<%= full_name(@user) %>
+					</h4>
 
-				<h4>
-					<%= @user.email %>
-				</h4>
+					<h4>
+						<%= @user.email %>
+					</h4>
+				</div>
+
+			<div class="player_credits">
+				</br>
+					<p class="credit_count">
+						Credits in Bank: <span class="credit_count"><%= @player_credits %></span>
+					</p>
+				</br>
+					<p class="credit_count">
+						Credits in Pools: <span class="credit_count"><%= @pool_credits %></span>
+					</p>
+				</br>
 			</div>
 
-		<div class="player_credits">
-			</br>
-				<p class="credit_count">
-					Credits in Bank: <span class="credit_count"><%= @player_credits %></span>
+			<div class="score_count">
+				<p class="score">
+					Wins:
 				</p>
 			</br>
-				<p class="credit_count">
-					Credits in Pools: <span class="credit_count"><%= @pool_credits %></span>
+				<p class="score">
+					Losses:
 				</p>
-			</br>
-		</div>
-
-		<div class="score_count">
-			<p class="score">
-				Wins:
-			</p>
-		</br>
-			<p class="score">
-				Losses:
-			</p>
+			</div>
 		</div>
 	</div>
 </div>
 
 <div class="row">
 	<div id="left_side" class="span6">
-		<%= render 'shared/friend_feed' %>
+		<div class="backdrop">
+			<div class="friends_feed">
+				<h3 class="friend_feed_label_counter">
+					<%= @user.first_name %>'s
+					<%= pluralize(@user.friends.count, "Friend") %></h3>
+				<%= render 'shared/friend_feed' %>
+			</div>
+		</div>
 	</div>
 
 	<div id="right_side" class="span6">
-		<div class="credit_redeem">
-		
-			<%= form_tag redeem_credits_credit_path, :method => 'put' do %>
-	
-			<%= text_field_tag :search, params[:search], :class => 'credit_redeem_form', :placeholder => 'Enter Redemption Code' %>
-			<%= submit_tag "Redeem", :class => 'redeem_button' %>
 
-			<% end %>
+		<div class="backdrop">
+			<div class="credit_redeem">
+				<%= form_tag redeem_credits_credit_path, :method => 'put' do %>
+		
+				<%= text_field_tag :search, params[:search], :class => 'credit_redeem_form', :placeholder => 'Enter Redemption Code' %>
+				<%= submit_tag "Redeem", :class => 'redeem_button' %>
+
+				<% end %>
+			</div>
 		</div>
 
-		<div class="participating_pools">
-			<h3 class="participating_pool_label">Participating Pools</h3>
-			<%= render 'shared/pool_feed' %>
+		<div class="backdrop">
+			<div class="participating_pools_feed">
+				<h3 class="participating_pool_label">Participating Pools</h3>
+				<%= render 'shared/pool_feed' %>
+			</div>
 		</div>
 	</div>
 </div>

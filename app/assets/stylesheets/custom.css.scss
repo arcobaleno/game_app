@@ -1,10 +1,13 @@
 @import "bootstrap";
 
-/* mixins, variables, etc. */
+
+/* Color Structuring */
+  /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
 $green: #006600;
 $blue: #0c68b0;
+$navbar: #221e29;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -12,17 +15,22 @@ $blue: #0c68b0;
   box-sizing: border-box;
 }
 
-/* mixin website features */
-$navbar: #221e29;
-
 /* universal */
+
+div.backdrop {
+  background-color:transparent;
+  border:2px solid white;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding-top:5px;
+  padding-bottom:5px;
+  padding-left:5px;
+  padding-right:5px;
+  margin-top:10px;
+}
 
 html {
   overflow-y: scroll;
-}
-
-body {
-  padding-top: 0px;
 }
 
 section {
