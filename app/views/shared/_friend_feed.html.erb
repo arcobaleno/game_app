@@ -1,5 +1,4 @@
 <div>
-
 		<% @user.friends.each do |friend| %>
 			<div class="item">
 				<div class="friend_item_profile_pic"><%= image_tag @user.avatar_url.to_s, :class => 'thumb' %></div>

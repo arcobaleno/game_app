@@ -2,83 +2,101 @@
 
 <h2>All Potential Friends</h2>
 
-<table class="table">
-	<tr>
-		<th>Name</th>
-		<th>Add Friend</th>
-	</tr>
-	<% for user in @users %>
-	<% if user != current_user %>
-		<tr>
-			<td><%= full_name(user) %></td>
-			<td>
-				<%= friendship_status(current_user, user) %>
-				<% unless Friendship.exists?(current_user, user) %>
-				<br />
-				<%= button_to "Add Friend", friendships_path(:id => user), :method => :post, :confirm => "Send friend request to #{full_name(user)}?" %>
-				<% end %>
-			</td>
-		</tr>
-	<% end %>
-	<% end %>
-</table>
+<div class="row">
+	<div id="friends_index" class="span12">
+		<div class="backdrop">
+			<div class="find_friends_list">
+				<table class="table">
+					<tr>
+						<th>Name</th>
+						<th>Add Friend</th>
+					</tr>
+					<% for user in @users %>
+					<% if user != current_user %>
+						<tr>
+							<td><%= full_name(user) %></td>
+							<td>
+								<%= friendship_status(current_user, user) %>
+								<% unless Friendship.exists?(current_user, user) %>
+								<br />
+								<%= button_to "Add Friend", friendships_path(:id => user), :method => :post, :confirm => "Send friend request to #{full_name(user)}?" %>
+								<% end %>
+							</td>
+						</tr>
+					<% end %>
+					<% end %>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
 
-	<h2> <%= @user.first_name %>'s Friends </h2>
+<div class="row">
+	<div class="span4">
+		<div class="friendship_index_friends_feed">
+			<h3 class="friend_feed_label_counter">
+						<%= @user.first_name %>'s
+						<%= pluralize(@user.friends.count, "Friend") %>
+			</h3>
+			<% @user.friends.each do |friend| %>
+				<div class="item">
+					<div class="friend_item_profile_pic"><%= image_tag @user.avatar_url.to_s, :class => 'thumb' %></div>
+					<div class="friend_item_name"><%= link_to full_name(friend), friend %></div>
+					<% unless hide_edit_links? %>
+					<div class="friend_item_button"><%= button_to "Delete", delete_friendship_path(:id => friend), :method => :delete, :confirm => "you sure?", :class => 'friend_delete_button' %></div>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+	</div>
 
-	<table class="table table-bordered">
-		<tr>
-			<th colspan="3" align="left">
-				<%= pluralize(@user.friends.count, "Friend") %>
-			</th>
-		</tr>
-
-		<% @user.friends.each do |friend| %>
-
-		<tr>
-			<td><%= link_to full_name(friend), friend %>
-			</td>
-			<td>
-				<% unless hide_edit_links? %>
-					<%= button_to "Delete", delete_friendship_path(:id => friend), :method => :delete, :confirm => "you sure?" %>
-				<% end %>
-			</td>
-		</tr>
-		<% end %>
-			
-		<% unless @user.requested_friends.empty? or hide_edit_links? %>
-			<tr>
-				<th colspan="3" align="left">
+	<div class="span4">
+		<div class="friendship_index_requested_friends_feed">
+			<% unless @user.requested_friends.empty? or hide_edit_links? %>	
+				<h3 class="friend_request_label_counter"> 
 					<%= pluralize(@user.requested_friends.count, "requested friend") %>
-				</th>
-			</tr>
+				</h3>
+					
+				<% @user.requested_friends.each do |requester| %>
 
-			<% @user.requested_friends.each do |requester| %>
-
-			<tr>
-				<td>
-					<%= link_to full_name(requester), requester %>
-				</td>
-
-				<td><%= button_to "Accept", accept_friendship_path(:id => requester), :method => :put, :confirm => "you sure?" %>
-
-					<%= button_to "Decline", decline_friendship_path(:id => requester), :method => :delete, :confirm => "you sure?" %>
-				</td>
-			</tr>
+					<div class="item">
+						<div class="friend_item_profile_pic">
+							<%= image_tag @user.avatar_url.to_s, :class => 'thumb' %>
+						</div>
+						<div class="friend_item_name">
+							<%= link_to full_name(requester), requester %>
+						</div>
+						<div class="friend_item_button">
+							<%= button_to "Accept", accept_friendship_path(:id => requester), :method => :put, :class => 'friend_accept_button' %>
+			
+							<%= button_to "Decline", decline_friendship_path(:id => requester), :method => :delete, :confirm => "you sure?", :class => 'friend_decline_button' %>
+						</div>
+					</div>
+				<% end %>
 			<% end %>
-		<% end %>
+		</div>
+	</div>
 
-		<% unless @user.pending_friends.empty? or hide_edit_links? %>
-			<tr>
-				<th colspan="3" align="left">
+	<div class="span4">
+		<div class="friendship_index_pending_friends_feed">
+			<% unless @user.pending_friends.empty? or hide_edit_links? %>
+				<h3>
 					<%= pluralize(@user.pending_friends.count, "pending friend") %>
-				</th>
-			</tr>
-			<% @user.pending_friends.each do |pending_friend| %>
-			<tr>
-				<td><%= link_to full_name(pending_friend), pending_friend %></td>
-				<td><%= button_to "Cancel Request", cancel_friendship_path(pending_friend), :method => :delete, :confirm => "you sure? #{full_name(pending_friend)}" %></td>
-			</tr>
+				</h3>
+
+				<% @user.pending_friends.each do |pending_friend| %>
+					<div class="item">
+						<div class="friend_item_profile_pic"><%= image_tag @user.avatar_url.to_s, :class => 'thumb' %></div>
+						<div class="friend_item_name">
+							<%= link_to full_name(pending_friend), pending_friend %>
+						</div>
+						<div class="friend_item_button">
+							<%= button_to "Cancel Request", cancel_friendship_path(pending_friend), :method => :delete, :confirm => "you sure? #{full_name(pending_friend)}", :class => 'friend_cancel_button' %>
+						</div>
+					</div>
+				<% end %>
 			<% end %>
-		<% end %>
-	</table>
+		</div>
+	</div>
+</div>
 
