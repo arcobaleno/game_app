@@ -1,0 +1,49 @@
+/* Friends Index Page */
+
+/* Special Id for find friends list check the top row */
+div#friends_index {
+	width:985px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+/* Find Friends List */
+
+div.find_friends_list {
+	width:967px;
+	background-color:grey;
+	border:2px solid grey;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	padding-top:5px;
+}
+
+/* Friends Feed */
+
+div.friendship_index_friends_feed {
+	width:320px;
+	border:solid 2px white;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	margin-left:-20px;
+}
+
+/* Friends Requested Feed */
+
+div.friendship_index_requested_friends_feed {
+	width:320px;
+	border:solid 2px white;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	margin-left:-10px;
+}
+
+/* Friends Pending Feed */
+
+div.friendship_index_pending_friends_feed {
+	width:320px;
+	border:solid 2px white;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	margin-left:0px;
+}
