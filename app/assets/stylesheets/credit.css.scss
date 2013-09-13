@@ -7,10 +7,45 @@
 }
 
 div#credits_index {
-	background-color:white;
+	background-color:grey;
 	padding-top:20px;
+	height:100%;
+	padding-left:20px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+}
+
+table#credits_table {
+	margin-right:20px;
+	width:885px;
 }
 
 .credits_search_bar {
 	width:600px;
+}
+
+/* Edit Credits Page */
+
+div.edit_credits_page {
+	padding-top:10px;
+	background-color:grey;
+	-moz-border-radius:10px;
+	border-radius:10px;
+}
+
+h1.edit_credits_page_title {
+	margin-top:0px;
+}
+
+h3.current_attributes_label {
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+div#make_changes_box {
+	margin-left:80px;
+}
+
+div#current_attributes_box {
+	margin-left:60px;
 }

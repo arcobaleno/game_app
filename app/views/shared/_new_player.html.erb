@@ -1,25 +1,27 @@
 <div class="player_score_form">
-	<h3>Predicted Score</h3>
+	<h3 class="predicted_score_label">Predicted Score</h3>
 
 	<%= form_for([@game, @pool, @player]) do |f| %>
 
-	<div class="row">
-		<div class="team_one_score_label">
-			<%= f.label :team_one_predicted_score, @game.team_one %>
-		</div>
-		<div class="team_two_score_label">
-			<%= f.label :team_two_predicted_score, @game.team_two %>
-		</div>
-	</div>
-
-	<div class="row">
-			<%= f.text_area :team_one_predicted_score, :class => 'score_input' %>
-
-		<div class="score_input_button">
-			<%= f.submit "Join Pool", class: "btn btn-mini btn-primary" %>
+	<div class="both_score_inputs">
+		<div class="row">
+			<div class="team_one_score_label">
+				<%= f.label :team_one_predicted_score, @game.team_one %>
+			</div>
+			<div class="team_two_score_label">
+				<%= f.label :team_two_predicted_score, @game.team_two %>
+			</div>
 		</div>
 
-			<%= f.text_area :team_two_predicted_score, :class => 'score_input2' %>
-		<% end %>
+		<div class="row">
+				<%= f.text_area :team_one_predicted_score, :class => 'score_input' %>
+
+			<div class="score_input_button">
+				<%= f.submit "Join Pool", class: "btn btn-mini btn-inverse" %>
+			</div>
+
+				<%= f.text_area :team_two_predicted_score, :class => 'score_input2' %>
+			<% end %>
+		</div>
 	</div>
 </div>

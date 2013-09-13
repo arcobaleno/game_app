@@ -1,56 +1,59 @@
-<% provide(:title, 'Edit Credit') %>
+<div class="backdrop">
+	<div class="edit_credits_page">
 
-<h1>Edit Credit <%= @credit.id %></h1>
+		<% provide(:title, 'Edit Credit') %>
 
-<div class="row">
+		<h1 class="edit_credits_page_title">Edit Credit <%= @credit.id %></h1>
 
-	<div class="span6">
-		<%= link_to "Back to Credits", credits_path, class: "btn btn-mini btn-primary" %>
-		<h3>Current Attribiutes</h3>
-	</br>
-	</br>
-	</br>
-	</br>
-		<table class="table">
-			<tr>
-				<th>User ID</th>
-				<td><%= @credit.user_id %></td>
-			</tr>
-			<tr>
-				<th>Pool ID</th>
-				<td><%= @credit.pool_id %></td>
-			</tr>
-			<tr>
-				<th>Credit Code</th>
-				<td><%= @credit.credit_code %></td>
-			</tr>
-			<tr>
-				<th>Value</th>
-				<td><%= @credit.value %></td>
-			</tr>
-		</table>
-	</div>
-	
-	<div class="span6">
+		<div class="row">
 
-		<h3>Make Changes</h3>
-	
-		<%= form_for(@credit) do |f| %>
+			<div id="current_attributes_box" class="span4">
 
-		<%= f.label :user_id %>
-		<%= f.text_field :user_id %>
+				<h3 class="current_attributes_label">Current Attribiutes</h3>
 
-		<%= f.label :pool_id %>
-		<%= f.text_field :pool_id %>
+				<table class="table">
+					<tr>
+						<th>User ID</th>
+						<td><%= @credit.user_id %></td>
+					</tr>
+					<tr>
+						<th>Pool ID</th>
+						<td><%= @credit.pool_id %></td>
+					</tr>
+					<tr>
+						<th>Credit Code</th>
+						<td><%= @credit.credit_code %></td>
+					</tr>
+					<tr>
+						<th>Value</th>
+						<td><%= @credit.value %></td>
+					</tr>
+				</table>
+			</div>
+			
+			<div id="make_changes_box" class="span6">
 
-		<%= f.label :credit_code %>
-		<%= f.text_field :credit_code %>
+				<h3>Make Changes</h3>
+			
+				<%= form_for(@credit) do |f| %>
 
-		<%= f.label :value %>
-		<%= f.text_field :value %>
+				<%= f.label :user_id %>
+				<%= f.text_field :user_id %>
 
-		<%= f.submit "Save Changes", class: "btn btn-large btn-primary" %>
-		<% end %>
-	
+				<%= f.label :pool_id %>
+				<%= f.text_field :pool_id %>
+
+				<%= f.label :credit_code %>
+				<%= f.text_field :credit_code %>
+
+				<%= f.label :value %>
+				<%= f.text_field :value %>
+
+				<%= f.submit "Save Changes", class: "btn btn-large btn-inverse" %>
+
+				<%= link_to "Back to Credits", credits_path, class: "btn btn-large btn-inverse" %>
+				<% end %>
+			
+			</div>
 	</div>
 </div>

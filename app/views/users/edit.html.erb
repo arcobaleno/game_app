@@ -1,32 +1,37 @@
-<% provide(:title, 'Edit Profile') %>
+<div class="backdrop">
+	<div class="user_edit_page">
 
-<h1>Edit <%= full_name(@user) %>'s Profile </h1>
+		<% provide(:title, 'Edit Profile') %>
 
-<div class="row">
-	<div class="span6 offset3">
-	
-<%= form_for(@user) do |f| %>
+		<h1>Edit <%= full_name(@user) %>'s Profile </h1>
 
-	<%= render 'layouts/error_messages', object: f.object %>
+		<div class="row">
+			<div class="span6 offset3">
+			
+		<%= form_for(@user) do |f| %>
 
-	<%= f.label :first_name %>
-	<%= f.text_field :first_name %>
+			<%= render 'layouts/error_messages', object: f.object %>
 
-	<%= f.label :last_name %>
-	<%= f.text_field :last_name %>
+			<%= f.label :first_name %>
+			<%= f.text_field :first_name %>
 
-	<%= f.label :email %>
-	<%= f.text_field :email %>
+			<%= f.label :last_name %>
+			<%= f.text_field :last_name %>
 
-	<%= f.label :password %>
-	<%= f.password_field :password %>
+			<%= f.label :email %>
+			<%= f.text_field :email %>
 
-	<%= f.label :password_confirmation, "Confirmation" %>
-	<%= f.password_field :password_confirmation %>					
-  <%= f.label :avatar, "Upload a Profile Picture" %>
-  <%= f.file_field :avatar %>
+			<%= f.label :password %>
+			<%= f.password_field :password %>
 
-	<%= f.submit "Save Changes", class: "btn btn-large btn-primary" %>
-<% end %>
+			<%= f.label :password_confirmation, "Confirmation" %>
+			<%= f.password_field :password_confirmation %>					
+		  <%= f.label :avatar, "Upload a Profile Picture" %>
+		  <%= f.file_field :avatar %>
+
+			<%= f.submit "Save Changes", class: "btn btn-large btn-inverse" %>
+		<% end %>
+			</div>
+		</div>
 	</div>
 </div>
