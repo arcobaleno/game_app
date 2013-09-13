@@ -2,13 +2,14 @@
 .pool_partial {
 	width:300px;
 	height:100px;
-	border:1px solid black;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
+	border:none;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 	background-color:#BFB9CB;
 	margin-right:auto;
-	margin-left:auto;
+	margin-left:5px;
 	margin-bottom:10px;
+	margin-top:10px;
 }
 
 .pool_partial_first {

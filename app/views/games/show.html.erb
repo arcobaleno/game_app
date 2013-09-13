@@ -1,5 +1,7 @@
-<div id="game_show_title" class="backdrop">
-	<h1><%= @game.team_one %> vs. <%= @game.team_two %></h1>
+<div id="game_show_title_backdrop" class="backdrop">
+	<div id="game_show_title">
+		<h1><%= @game.team_one %> vs. <%= @game.team_two %></h1>
+	</div>
 </div>
 
 <div id="games_buttons" class="row">
@@ -12,7 +14,8 @@
 	</div>
 </div>
 
-
-<div id="pools_index_box" class="backdrop">
-	<%= render @game.pools.sort_by &:id  %>
+<div id="pools_index_box_backdrop" class="backdrop">
+	<div id="pools_index_box">
+		<%= render @game.pools.sort_by &:id  %>
+	</div>
 </div>

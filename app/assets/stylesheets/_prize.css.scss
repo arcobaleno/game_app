@@ -1,7 +1,30 @@
+div#prize_page_title {
+	height:100%;
+	background-color:grey;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+div#available_prizes {
+	padding-top:10px;
+	overflow:auto;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color:grey;
+}
+
+div#redeemed_prizes {
+	padding-top:10px;
+	overflow:auto;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color:grey;
+}
+
 #prize_box {
 	width:300px;
 	height:100px;
-	border:1px solid black;
+	border:none;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
 	background-color:#BFB9CB;

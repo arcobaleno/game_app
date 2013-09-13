@@ -1,4 +1,8 @@
-<h1>Prize Board</h1>
+<div class="backdrop">
+	<div id="prize_page_title">
+		<h1>Prize Board</h1>
+	</div>
+</div>
 
 <% if current_user.user_type == 4 %>
 	<h3><%= link_to "New Prize", new_prize_path, class: "btn btn-large btn-primary" %></h3>
@@ -6,18 +10,22 @@
 <% end %>
 <div class="row">
 	<div class="span6">
-		<div class="available_prizes">
-			<h3>Prizes Available</h3>
-			</br>
-			<%= render @available_prizes %>
+		<div class="backdrop">
+			<div id="available_prizes">
+				<h3>Prizes Available</h3>
+				</br>
+				<%= render @available_prizes %>
+			</div>
 		</div>
 	</div>
 
 	<div class="span6">
-		<div class="redeemed_prizes">
-			<h3>Prizes Redeemed</h3>
-			</br>
-			<%= render @redeemed_prizes %>
+		<div class="backdrop">
+			<div id="redeemed_prizes">
+				<h3>Prizes Redeemed</h3>
+				</br>
+				<%= render @redeemed_prizes %>
+			</div>
 		</div>
 	</div>
 </div>

@@ -13,13 +13,20 @@ $background: #1f3b56;
 
 div#game_show_title {
 	width:500px;
-	background-color:white;
+	background-color:grey;
+	border:2px solid grey;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 	margin-left:auto;
 	margin-right:auto;
 }
 
+div#game_show_title_backdrop {
+	width:504px;
+}
+
 #games_buttons {
-	margin-left:310px;
+	margin-left:0px;
 	margin-bottom:15px;
 }
 
@@ -27,25 +34,46 @@ div#pools_index_box {
 	overflow:auto;
 	margin-left:auto;
 	margin-right:auto;
-	width:300px;
-	background-color:white;
+	width:310px;
+	border:2px solid grey;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color:grey;
+}
+
+div#pools_index_box_backdrop {
+	width:314px;
 }
 
 div#game_page_title {
 	width:400px;
+	height:100%;
+	border:2px solid grey;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 	margin-left:auto;
 	margin-right:auto;
-	background-color:white;
+	background-color:grey;
+}
+
+div#game_page_title_backdrop {
+	width:404px;
 }
 
 div#game_box {
 	width:400px;
-	border:1px solid white;
+	border:2px solid grey;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 	margin-left:auto;
 	margin-right:auto;
 	overflow:auto;
 	padding-top:10px;
-	background-color:white;
+	background-color:grey;
+}
+
+div#game_box_backdrop {
+	float:left;
 }
 
 /* New Game Page */
