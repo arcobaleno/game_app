@@ -1,32 +1,34 @@
-<h1>List of all Credits in System</h1>
-<p>
-<%= link_to "Create New Credit", new_credit_path, class: "btn btn-mini btn-primary" %>
-</p>
-<%= form_tag credits_path, :method => 'get' do %>
-	<%= hidden_field_tag :direction, params[:direction] %>
-	<%= hidden_field_tag :sort, params[:sort] %>
+<div id="credits_index" class="backdrop">
+	<h1>List of all Credits in System</h1>
 	<p>
-		<%= text_field_tag :search, params[:search] %>
-		<%= submit_tag "Search", :id => nil %>
+	<%= link_to "Create New Credit", new_credit_path, class: "btn btn-mini btn-primary" %>
 	</p>
-<% end %>
-
-<table class="table">
-	<tr>
-		<th><%= sortable "id" %></th>
-		<th><%= sortable "user_id" %></th>
-		<th><%= sortable "pool_id" %></th>
-		<th><%= sortable "credit_code" %></th>
-		<th>Edit Credit</th>
-	</tr>
-	<% for credit in @credits %>
-	<tr>
-		<td><%= credit.id %></td>
-		<td><%= credit.user_id %></td>
-		<td><%= credit.pool_id %></td>
-		<td><%= credit.credit_code %></td>
-		<td><%= link_to "Edit", edit_credit_path(credit), class: "btn btn-mini btn-primary" %></td>
-	</tr>
+	<%= form_tag credits_path, :method => 'get' do %>
+		<%= hidden_field_tag :direction, params[:direction] %>
+		<%= hidden_field_tag :sort, params[:sort] %>
+		<p>
+			<%= text_field_tag :search, params[:search], class: "credits_search_bar" %>
+			<%= submit_tag "Search", :id => nil %>
+		</p>
 	<% end %>
-</table>
-<%= will_paginate @credits %>
+
+	<table class="table">
+		<tr>
+			<th><%= sortable "credit_id" %></th>
+			<th><%= sortable "user_id" %></th>
+			<th><%= sortable "pool_id" %></th>
+			<th><%= sortable "credit_code" %></th>
+			<th>Edit Credit</th>
+		</tr>
+		<% for credit in @credits %>
+		<tr>
+			<td><%= credit.id %></td>
+			<td><%= credit.user_id %></td>
+			<td><%= credit.pool_id %></td>
+			<td><%= credit.credit_code %></td>
+			<td><%= link_to "Edit", edit_credit_path(credit), class: "btn btn-mini btn-primary" %></td>
+		</tr>
+		<% end %>
+	</table>
+	<%= will_paginate @credits %>
+</div>

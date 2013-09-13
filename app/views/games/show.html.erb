@@ -1,4 +1,6 @@
-<h1><%= @game.team_one %> vs. <%= @game.team_two %></h1>
+<div id="game_show_title" class="backdrop">
+	<h1><%= @game.team_one %> vs. <%= @game.team_two %></h1>
+</div>
 
 <div id="games_buttons" class="row">
 	<div class="back_to_games_button">
@@ -10,6 +12,7 @@
 	</div>
 </div>
 
-<div>
+
+<div id="pools_index_box" class="backdrop">
 	<%= render @game.pools.sort_by &:id  %>
 </div>

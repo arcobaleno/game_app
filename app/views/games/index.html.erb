@@ -1,10 +1,12 @@
-<h1>Games</h1>
+<div id="game_page_title" class="backdrop">
+	<h1>Games</h1>
+</div>
 
-<% if current_user.user_type == 4 %>
-	<h3><%= link_to "New Game", new_game_path, class: "btn btn-large btn-primary" %></h3>
-	</br>
-<% end %>
+	<% if current_user.user_type == 4 %>
+		<h3><%= link_to "New Game", new_game_path, class: "btn btn-large btn-primary" %></h3>
+		</br>
+	<% end %>
 
-<div class="game_box">
+<div id="game_box" class="backdrop">
 	<%= render @games.sort_by &:id %>
 </div>
