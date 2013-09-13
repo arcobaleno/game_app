@@ -185,10 +185,12 @@ div.credit_redeem {
 
 .credit_redeem_form {
 	width:330px;
+	margin-top:5px;
+	margin-left:10px;
 }
 
 .redeem_button {
-
+	margin-top:10px;
 }
 
 /* Pools Feed Feature */
@@ -222,7 +224,7 @@ h3.participating_pool_label {
 	margin-bottom:15px;
 }
 
-.pool_sport {
+div.pool_sport {
 	height:80px;
 	width:90px;
 	float:left;
@@ -233,7 +235,7 @@ p#pool_sport {
 	padding-top:10px;
 }
 
-.pool_game_info {
+div.pool_game_info {
 	height:80px;
 	width:165px;
 	float:left;
@@ -245,7 +247,7 @@ p#pool_game_info {
 	padding-top:13px;
 }
 
-.pool_info {
+div.pool_info {
 	height:80px;
 	width:163px;
 	float:left;

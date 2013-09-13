@@ -1,0 +1,177 @@
+/* Pool Show Page */
+
+h1.pool_label {
+	background-color:white;
+	border:2px solid white;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+h3.bantr_label {
+	height:50px;
+	background-color:white;
+	border:2px solid white;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	margin-bottom:30px;
+}
+
+h3.score_label {
+	height:50px;
+	background-color:white;
+	border:2px solid white;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	margin-bottom:5px;
+}
+
+/* Top Pool Info */
+
+div.pool_show_game_info {
+	width:466px;
+	height:100px;
+	border:solid 2px white;
+	margin-bottom:10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color:white;
+}
+
+div.pool_bet_info {
+	width:466px;
+	height:100px;
+	float:left;
+	border:solid 2px white;
+	margin-bottom:10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color:white;
+}
+
+/* Banter */
+
+div.micropost_feed {
+	margin-top:-50px;
+}
+
+div.micropost_item {
+	height:100px;
+	border:2px solid white;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color:white;
+	margin-bottom:5px;
+}
+
+div.micropost_item_profile_pic {
+	width:100px;
+	float:left;
+}
+
+div.micropost_item_name{
+	width:100px;
+	margin-left:20px;
+	float:left;
+}
+
+div.micropost_item_content {
+	width:100px;
+	margin-left:20px;
+	float:left;
+}
+
+div.bantr_form {
+}
+
+div#bantr_button {
+			position:relative;
+			top:-55px;
+			left:424px;
+}
+
+#bantr_profile_pic {
+  			width: 300px;
+  			height:70px;
+			border-radius: 80px;
+			-webkit-border-radius: 150px;
+			-moz-border-radius: 150px;
+  			opacity:1.0;
+  			padding-top:5px;
+  			padding-bottom:5px;
+}
+
+/* Scores */
+
+div.pool_player_item {
+	background-color:white;
+	border:2px solid white;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	height:100px;
+	margin-bottom:5px;
+}
+
+div.pool_item_player_score {
+	float:left;
+	margin-top:30px;
+	font-size:50px;
+	margin-left:50px;
+}
+
+div.pool_item_player_name {
+	float:left;
+	margin-top:30px;
+	margin-left:50px;
+}
+
+div.player_score_form {
+	background-color:grey;
+	border:2px solid white;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	margin-bottom:5px;
+}
+
+div#post_score_button {
+			position:relative;
+			top:-130px;
+			left:187px;
+			width:80px;
+			
+}
+
+div.team_one_score_label {
+	float:left;
+	margin-left:100px;
+}
+
+div.team_two_score_label {
+	float:left;
+	margin-left:140px;
+}
+
+
+div.score_input_button {
+	float:left;
+	margin-left:40px;
+	margin-top:-15px;
+}
+
+.score_input {
+	float:left;
+	margin-left:100px;
+	font-size:35px;
+	width:50px;
+	height:30px;
+}
+
+.score_input2 {
+	float:left;
+	margin-left:40px;
+	font-size:35px;
+	width:50px;
+	height:30px;
+}
+
+
+

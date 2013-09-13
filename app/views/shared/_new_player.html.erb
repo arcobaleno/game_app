@@ -1,15 +1,25 @@
-<h3>Predicted Score</h3>
+<div class="player_score_form">
+	<h3>Predicted Score</h3>
 
-<%= form_for([@game, @pool, @player]) do |f| %>
+	<%= form_for([@game, @pool, @player]) do |f| %>
 
-<%= f.label :team_one_predicted_score, @game.team_one %>
+	<div class="row">
+		<div class="team_one_score_label">
+			<%= f.label :team_one_predicted_score, @game.team_one %>
+		</div>
+		<div class="team_two_score_label">
+			<%= f.label :team_two_predicted_score, @game.team_two %>
+		</div>
+	</div>
 
-<%= f.text_field :team_one_predicted_score %>
+	<div class="row">
+			<%= f.text_area :team_one_predicted_score, :class => 'score_input' %>
 
-<%= f.label :team_two_predicted_score, @game.team_two %>
+		<div class="score_input_button">
+			<%= f.submit "Join Pool", class: "btn btn-mini btn-primary" %>
+		</div>
 
-<%= f.text_field :team_two_predicted_score %>
-
-<%= f.submit "Join Pool", class: "btn btn-large btn-primary" %>
-
-<% end %>
+			<%= f.text_area :team_two_predicted_score, :class => 'score_input2' %>
+		<% end %>
+	</div>
+</div>
