@@ -215,10 +215,10 @@ h3.participating_pool_label {
 #participating_pools_box {
 	height:80px;
 	width:420px;
-	border:1px solid black;
+	border:none;
 	-moz-border-radius:10px;
 	border-radius:10px;
-	background-color:#BFB9CB;
+	background-color:white;
 	margin-left:auto;
 	margin-right:auto;
 	margin-bottom:15px;
@@ -236,11 +236,13 @@ p#pool_sport {
 }
 
 div.pool_game_info {
-	height:80px;
-	width:165px;
+	height:75px;
+	width:145px;
+	border-radius:0px;
 	float:left;
 	border-right:1px solid black;
 	padding-top:0px;
+	margin-bottom:0px;
 }
 
 p#pool_game_info {
@@ -253,14 +255,15 @@ div.pool_info {
 	float:left;
 }
 
-.pool_info_table {
+table.pool_info_table {
 	margin-left:15px;
+	margin-top:8px;
 }
 
-.pool_info_table_cell_1 {
+td.pool_info_table_cell_1 {
 	text-align:left;
 }
 
-.pool_info_table_cell_2 {
+td.pool_info_table_cell_2 {
 	text-align:right;
 }
